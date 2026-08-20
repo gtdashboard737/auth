@@ -103,7 +103,7 @@
   try{
     var url = new URL(window.location.href);
     if((url.pathname || '/') === '/'){
-      window.location.replace(url.origin + '/masuk.html');
+      history.replaceState(null, document.title, url.origin + '/masuk.html');
       return;
     }
     if(!/\/masuk\.html$/i.test(url.pathname || '')) return;
