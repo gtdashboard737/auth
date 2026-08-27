@@ -1,35 +1,48 @@
 <!doctype html>
 <html lang="id" data-effective-theme="dark" data-motion="full" data-a2f-error-fix="friendly-v1">
 <head>
-<meta id="dirac-csp-sha512-v1" http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'sha512-7yF6fpL2TAEiGdDz/jNtyJOjx1U2btYfe74FPBs37fWczNeISkoGHydQgM4aVBMrqxTydg9Hp5BsPOthjQDyzA==' 'sha512-dcT0qXdUbXRfPocU46S0ZRZBgColrRCt0C+JUcMsv63OFmDf1iASIHK2/c3y89C7tMkJrpuB+kCh8eChz5D1iA==' 'sha512-tw/rCB11Sih/koLtKj6JWYuBRb2oP8Z+0vvkoSPUkD0P4roTKZmGqXHkERcyHqKyWZ0/nd8AAN3i/9MlKl448Q==' 'sha512-l+IwaNieZyBApwX5Xc+sObORx523xiWfRFXcwbUuqngFkupM/P/Ifzvd1AG0DBnKU6Yra+BanWbX4cT8YSw5CA==' 'sha512-+HDFH35scMEOLX9FXGHnz/vcM0bjWi7s8dAu1tAKgkhBJ20iEGzQPoybP1gUfq7yrw3vGMI7qgNlRv3oDMSVkg==' 'sha512-EAWVpFYuW3mbSwFf3ihZ7q6cvLBXsJRGvRmKownyArmzpu0rH2BR6TAIcWqgQevcdlywZENe3eJrH/NIp4i7eg==' 'sha512-XDU/LNHLU3WtqUxtqLXGEbh0Ov38hgX5QpQCt+i7S7Y3LRX8bRZrRqQvQl6xz2zCnZFcOINAQqkZsDZ+PIlZTw==' 'sha512-QDX879FueZhVZFZFX0n+phLeIkVIh6cgiYTlC357I3UIKXrP2bS3YkjScfHWmHjZviTAW8uzAh8vDrfyu8UbFA==' 'sha512-kktS7corYjQTG2hRz67eL9AzMFzuQ912ucLi/JOven5YheK9er+e1Xz8Idqw4J599GSwyyBXEZo6KQBJm/FMqg==' 'sha512-K1MWkmjyvjUAWktjR1Q5YJvI2ZyGeBfURJFBF5wAceI0CeK0T+HQ5Rr04s/y0/ZdHpvTkNx8XYYQFzJpTVcsEw==' 'sha512-Du2fNyYTUN1Zltua+n3lH8on0RzFkBzDBRvrX9jR2bDU7aPAbr+uvB5QKdd0FRVrCRu9MwUUDErLr09AF3Y0Rw==' 'sha512-oJXe8NrLVHfSpfmSfjgdtKLNoO2pe7HA0AWAffOvB+eurESy8cZEYN8cWR7/773iNyqyej0pcfRj9xA+Jj0YIg==' 'sha512-RIoyd/4UOJBP5wt/xr1NnWbaU3waGSjH2bCdDxK0aoZ+Ih+eH9d0lOYeW3a0ulunxL2IRNIpPs+/I90lkg0lNQ==' 'sha512-WFRiqCpHMZbZ9wBEi7haPtnPXL8Pyb3RfYZIl8n0pSynj/ybtksCa8yRAXPTXNOzIcgm8fHUde8XPLrqfnfa5Q==' 'sha512-XNamYgaD3HnMI8rUQeOrCP/XcsNF6SL4730fXFAWltu+44LbVKb+fnHGlRGd2LAMJBaTGh42jlODxXFNsHiqLg==' 'sha512-WxTUPfCh/U53oWT+DEuRn8k+oImDA4XrM5Yh8ivubjFQnt0/wZ1obxzjLUZeqfqQ1/GCvdrTR7sgfaZUmrG2Ng==' 'sha512-rMoMl4MGOghSsV3uDuejeLWp70xqUcMao/wmc/eIsHcAkiXZBXiRfD8bfbSoI6CHunS8x/ihfl5WglJovAJHKg==' 'sha512-oXdo5a4+uGsnMTAxl6IML512gUkOnY5m4zhLYRNliGNXh/VsvwYXpky8KS0405dD/3AScaC+VVnm6nF9k7t45w==' 'sha512-MimukslXEckswvmeYDx53Tk/eK9bA8mHNvUngp4MBdeBCGPRmP6DYp2qRzoAdV8o0VpHzCn+PuOU66JEM57Pqg==' 'sha512-HogybZzshOq8hCqxp7t2NdF2ba9JrU9Qj+eywRFR9V6L5/KjJlZr1l/otFFTvYsvA4Rasx9s5dfuSkQUejS7sw==' 'sha512-eKewiKbPcpi4/YZ0CCxn2Hc+qp/EpCm/UWcDKQ73Vs4S/6889mjaJvtkLcfWKyDsFP8SDZBzsezAXfmlzmt1jA==' 'sha512-ZxqLPAw53DIdCGbHYDR7+YT6UFz82eebSVMjBkrJcD9QuR5BsOFp88oVVqa9HhsPhqF+znohhv8KLxsP6tIbLA==' 'sha512-SKB6OOF93AmzHOCT4rOuupCxccET8bKMZXDr+IztXF2ln9UWfARwe1WDxrop7TJ3j+yvg7lkkmSXF3SQnyUPAg==' 'sha512-R7TGx9lzJ8jwOcJvWKogRADoyPxTjsiykxYCqmfF6JhcAbYEQvHGDpJ9XrX+bbVncX3scvB5E7yGzRcaUNKJ0w==' 'sha512-zdNJLK/Ixafk8pbmtnQMxCSUtMYaAcIPP97eQSXUCFLtktwbSqA+29IP/UF/Lh8v6EHdfuMbJ2dLuXRrn6m/mQ==' 'sha512-K0W4UxfxbDmVjMztFPPeRPkWHY7qxiw6VkS+pX/Q3FUCkyjzbE8torQegIQIlzcKUD4rFUZZoupv5RAyU2UxyA==' 'sha512-cgV2hTKL/UNuG6RAobAKVCOk7yRx5clk1bt/C0rwBnjFI/p74ijyVq80mztVlZ1emvdWdq6+8ThjGM23f5JwZA==' 'sha512-LbCSsm2pvWKaXde7q5DwM45G0b49rfwDUXJ8VfwKgDSLSp2RyryU7CStL2Hm3gmuQdSzptBnVuQGDnK+4JQzsg==' 'sha512-2UCaz2I8HFzjxwr0EoNBWNCW7vbEMdv8AtWqNJY+P/52EJHcb94jtxMrZioP3YEfsUvko4p4U6mYvNvY6Mg9DQ==' 'sha512-z3pkhSB8FYXcG7J8rJx4xGrBsXcCM2sMJEV7FGPCaNPGpqRZ7BvVskAcdvlkeUOSaORwKpiGRhOgAlDPYqsroQ==' 'sha512-40hhVGP/j+MnwX5eSDnJclgCEX8J1dKHwBrtBGkWnhfhVNS+4NxO5Emn1XX/FBpIDTfJvlVzMEKW0dLPdaT7pA==' 'sha512-rwtia4MIqd4wtjMwMg/leen4GdxL0+fpw+RnQ6YE03RWKblklFd1gowaVoTP6kkQwNz3ErEogZVYgIBExFQifA==' 'sha512-TeImBWNPHmFEBfYoBHAGZYoqpWeByOWZ7304uRzyP6P+R9yb5xCnXThdpzOzSO/6g1xKcsnxQecTM1b2ZIgjAQ==' 'sha512-yiRrA5pT0hEfbajiB5M93YIyTaJm14/gADeAfCPUqGyMEr0cX8cybYGpNMC0Gwy01OdV0hwqPLnDhzxO2nLKvA==' 'sha512-m/WKbxf9y3veIC+WDqq0yYHcee08Xe9YPY2b9EXkOI8iRdg7F1Y+jTwLapb7veUXKPsoYMk0FMQEFtGnBYpyiw==' 'sha512-kFcLE95hcOZ1pHFKqcoZoCKoGCz9xSLNq5jx91+KYlgz5IgL8L1c40DEYAtmtBjKQLk3sgvCKaHH8vvwWoEYaQ==' 'sha512-wmxABCRa69HKfyP6dy0Rbw/qx4nM9xVdOGxZJiI8ftVosYwg/29noqk68Bu+5Vxmn1LEwVu1NP0SNgL5Vi0SlA=='; script-src-elem 'self' 'sha512-7yF6fpL2TAEiGdDz/jNtyJOjx1U2btYfe74FPBs37fWczNeISkoGHydQgM4aVBMrqxTydg9Hp5BsPOthjQDyzA==' 'sha512-dcT0qXdUbXRfPocU46S0ZRZBgColrRCt0C+JUcMsv63OFmDf1iASIHK2/c3y89C7tMkJrpuB+kCh8eChz5D1iA==' 'sha512-tw/rCB11Sih/koLtKj6JWYuBRb2oP8Z+0vvkoSPUkD0P4roTKZmGqXHkERcyHqKyWZ0/nd8AAN3i/9MlKl448Q==' 'sha512-l+IwaNieZyBApwX5Xc+sObORx523xiWfRFXcwbUuqngFkupM/P/Ifzvd1AG0DBnKU6Yra+BanWbX4cT8YSw5CA==' 'sha512-+HDFH35scMEOLX9FXGHnz/vcM0bjWi7s8dAu1tAKgkhBJ20iEGzQPoybP1gUfq7yrw3vGMI7qgNlRv3oDMSVkg==' 'sha512-EAWVpFYuW3mbSwFf3ihZ7q6cvLBXsJRGvRmKownyArmzpu0rH2BR6TAIcWqgQevcdlywZENe3eJrH/NIp4i7eg==' 'sha512-XDU/LNHLU3WtqUxtqLXGEbh0Ov38hgX5QpQCt+i7S7Y3LRX8bRZrRqQvQl6xz2zCnZFcOINAQqkZsDZ+PIlZTw==' 'sha512-QDX879FueZhVZFZFX0n+phLeIkVIh6cgiYTlC357I3UIKXrP2bS3YkjScfHWmHjZviTAW8uzAh8vDrfyu8UbFA==' 'sha512-kktS7corYjQTG2hRz67eL9AzMFzuQ912ucLi/JOven5YheK9er+e1Xz8Idqw4J599GSwyyBXEZo6KQBJm/FMqg==' 'sha512-K1MWkmjyvjUAWktjR1Q5YJvI2ZyGeBfURJFBF5wAceI0CeK0T+HQ5Rr04s/y0/ZdHpvTkNx8XYYQFzJpTVcsEw==' 'sha512-Du2fNyYTUN1Zltua+n3lH8on0RzFkBzDBRvrX9jR2bDU7aPAbr+uvB5QKdd0FRVrCRu9MwUUDErLr09AF3Y0Rw==' 'sha512-oJXe8NrLVHfSpfmSfjgdtKLNoO2pe7HA0AWAffOvB+eurESy8cZEYN8cWR7/773iNyqyej0pcfRj9xA+Jj0YIg==' 'sha512-RIoyd/4UOJBP5wt/xr1NnWbaU3waGSjH2bCdDxK0aoZ+Ih+eH9d0lOYeW3a0ulunxL2IRNIpPs+/I90lkg0lNQ==' 'sha512-WFRiqCpHMZbZ9wBEi7haPtnPXL8Pyb3RfYZIl8n0pSynj/ybtksCa8yRAXPTXNOzIcgm8fHUde8XPLrqfnfa5Q==' 'sha512-XNamYgaD3HnMI8rUQeOrCP/XcsNF6SL4730fXFAWltu+44LbVKb+fnHGlRGd2LAMJBaTGh42jlODxXFNsHiqLg==' 'sha512-WxTUPfCh/U53oWT+DEuRn8k+oImDA4XrM5Yh8ivubjFQnt0/wZ1obxzjLUZeqfqQ1/GCvdrTR7sgfaZUmrG2Ng==' 'sha512-rMoMl4MGOghSsV3uDuejeLWp70xqUcMao/wmc/eIsHcAkiXZBXiRfD8bfbSoI6CHunS8x/ihfl5WglJovAJHKg==' 'sha512-oXdo5a4+uGsnMTAxl6IML512gUkOnY5m4zhLYRNliGNXh/VsvwYXpky8KS0405dD/3AScaC+VVnm6nF9k7t45w==' 'sha512-MimukslXEckswvmeYDx53Tk/eK9bA8mHNvUngp4MBdeBCGPRmP6DYp2qRzoAdV8o0VpHzCn+PuOU66JEM57Pqg==' 'sha512-HogybZzshOq8hCqxp7t2NdF2ba9JrU9Qj+eywRFR9V6L5/KjJlZr1l/otFFTvYsvA4Rasx9s5dfuSkQUejS7sw==' 'sha512-eKewiKbPcpi4/YZ0CCxn2Hc+qp/EpCm/UWcDKQ73Vs4S/6889mjaJvtkLcfWKyDsFP8SDZBzsezAXfmlzmt1jA==' 'sha512-ZxqLPAw53DIdCGbHYDR7+YT6UFz82eebSVMjBkrJcD9QuR5BsOFp88oVVqa9HhsPhqF+znohhv8KLxsP6tIbLA==' 'sha512-SKB6OOF93AmzHOCT4rOuupCxccET8bKMZXDr+IztXF2ln9UWfARwe1WDxrop7TJ3j+yvg7lkkmSXF3SQnyUPAg==' 'sha512-R7TGx9lzJ8jwOcJvWKogRADoyPxTjsiykxYCqmfF6JhcAbYEQvHGDpJ9XrX+bbVncX3scvB5E7yGzRcaUNKJ0w==' 'sha512-zdNJLK/Ixafk8pbmtnQMxCSUtMYaAcIPP97eQSXUCFLtktwbSqA+29IP/UF/Lh8v6EHdfuMbJ2dLuXRrn6m/mQ==' 'sha512-K0W4UxfxbDmVjMztFPPeRPkWHY7qxiw6VkS+pX/Q3FUCkyjzbE8torQegIQIlzcKUD4rFUZZoupv5RAyU2UxyA==' 'sha512-cgV2hTKL/UNuG6RAobAKVCOk7yRx5clk1bt/C0rwBnjFI/p74ijyVq80mztVlZ1emvdWdq6+8ThjGM23f5JwZA==' 'sha512-LbCSsm2pvWKaXde7q5DwM45G0b49rfwDUXJ8VfwKgDSLSp2RyryU7CStL2Hm3gmuQdSzptBnVuQGDnK+4JQzsg==' 'sha512-2UCaz2I8HFzjxwr0EoNBWNCW7vbEMdv8AtWqNJY+P/52EJHcb94jtxMrZioP3YEfsUvko4p4U6mYvNvY6Mg9DQ==' 'sha512-z3pkhSB8FYXcG7J8rJx4xGrBsXcCM2sMJEV7FGPCaNPGpqRZ7BvVskAcdvlkeUOSaORwKpiGRhOgAlDPYqsroQ==' 'sha512-40hhVGP/j+MnwX5eSDnJclgCEX8J1dKHwBrtBGkWnhfhVNS+4NxO5Emn1XX/FBpIDTfJvlVzMEKW0dLPdaT7pA==' 'sha512-rwtia4MIqd4wtjMwMg/leen4GdxL0+fpw+RnQ6YE03RWKblklFd1gowaVoTP6kkQwNz3ErEogZVYgIBExFQifA==' 'sha512-TeImBWNPHmFEBfYoBHAGZYoqpWeByOWZ7304uRzyP6P+R9yb5xCnXThdpzOzSO/6g1xKcsnxQecTM1b2ZIgjAQ==' 'sha512-yiRrA5pT0hEfbajiB5M93YIyTaJm14/gADeAfCPUqGyMEr0cX8cybYGpNMC0Gwy01OdV0hwqPLnDhzxO2nLKvA==' 'sha512-m/WKbxf9y3veIC+WDqq0yYHcee08Xe9YPY2b9EXkOI8iRdg7F1Y+jTwLapb7veUXKPsoYMk0FMQEFtGnBYpyiw==' 'sha512-kFcLE95hcOZ1pHFKqcoZoCKoGCz9xSLNq5jx91+KYlgz5IgL8L1c40DEYAtmtBjKQLk3sgvCKaHH8vvwWoEYaQ==' 'sha512-wmxABCRa69HKfyP6dy0Rbw/qx4nM9xVdOGxZJiI8ftVosYwg/29noqk68Bu+5Vxmn1LEwVu1NP0SNgL5Vi0SlA=='; script-src-attr 'unsafe-hashes' 'sha512-ZZOXFnQLKr2DK9UXztKaZK8J0tNko3QjZ59ij1qq0LRliAwMQCezAuE8J+5ef6/tyNH3hZbil0j7xMumeQQFSA==' 'sha512-h4tRh/EP7lcPhgrQkcP7kdUh2nkUHvsJqQE6VGKoGHz1fwaDRYMYO2pcLfgCqVq5qg+3cWmzduqAJpwbhOR26A==' 'sha512-mGB6thUEkmh1ZUJxak/5zPgQO8Mkm57qWcZ4ygqJY6VBg8fkT6hIs5MH8NHzzSILwfdVoDgKLLScqUoY8duMkA=='; style-src 'self' 'sha512-xvPLzU8agX8bqbuTTTLFZantJ4hvA288YrfVHefjaFa79eiVCllTd+GAbLe+/a1I54t4rGPJTw2FMcWO+RFGJw==' https://fonts.googleapis.com 'sha512-swdahkaFC+CfFy4BGLM7GYIXXZJOhU08fmgQ7EcCUF4QpGYhgmQOEpwnUdaAwoNCy8KhCEmDj/kw1BbfSKav0Q==' 'sha512-823c9C/PnHMkuCjJIL6LKyRFd6J4swVkkejl/eRg7j/hcnKKSgBDtMsNHmilDNs3xtgPCDbSPvZGjqAW43duKQ==' 'sha512-pbgXhUzxSOZjYhQ7gsMNJmXnzo/I2CYytDfIZcKfJiVzVtWRnvhZUEQ/XHal2ZIDEks+dVI7G5ec8ARJxhyRcQ==' 'sha512-BABq/sceOY0hU5cpeQoFr3937SIsSqTK3bVJKjUTzW0LkREWyCJihqO17EWixuqQGFtYZq1UCK0mWZnWUltxjQ==' 'sha512-zn2TYoNoAdofGJnCeE4gc0/yUbe2boWA1cZt7AgaGK2o43YRWvKvgahvALPhvZe8MBj2tt0BZOvdDmcvyuqvrw==' 'sha512-NcdaVFaBI6sVfD0MOjkqoR8lRKBaFIX0ys49UW3x0nkNPww1NB2NHzGL4C1PUfEmeFk9bsEzOcXlEKQaPBB0dg==' 'sha512-I9Ro551Wa/Bym/Xps1OHHPgCGuU9/vgCfp4btZnfbyLWZrbIo+Nz8Tr6G0V4X80EOKZYqvE1aSSZUH78aWgA9g==' 'sha512-i3+b7SXO4eIvvrwFXjOilsTNEO4eAKgKAO+4hmohISmgwj18B5hxRmAtbu9YObHk4Ut/y1AFWZtD4PCv31quDw==' 'sha512-VSqguNf18JLezD2yalXuSkgAJetwc5gaZSL+4fJyImGF4zRNjRHojcEp1ywOml1k1qLnvMwwq3ZdmWScm+FWKg==' 'sha512-Izi41AzV5/hcVDWPn/UhPH9ktv6vubThYtpdjQjXJ0W9KHAgsEewlPQ2BTwlqAhyvCFZeX12YQzrglJadxJ4jw==' 'sha512-ttWMn6zpMrZ30LQ1ZaBZsJIzWcQGhoL21bw32RyqHfzv74dK3BgjoKcopg7bIqmEsMcMqcjMG+0JRXAaXOEUjA==' 'sha512-HEnsJdoeOXCq7boulcQJfkvMbq6TuFeyhYTyduT6yih9ZzQQFM0ZkVc3ksobks8cGo2MTvAKJ8N5dwNLBGT21A==' 'sha512-7hYFEBE95YyyBb8pdMSonOz/jLTmWPmJCSexKZ5ZVRpJR/HXImRHYPFAa5EX7znFwl/PQDyLHQRhdJXl3SOqmw==' 'sha512-tURKDo+/gT3/MVEXhmR3UawuEV0OQYtksyXn0blWxIBXZY1QJut0layv8UwxVlLoxMsdEOuvMAk1/fzQ5D0lbA==' 'sha512-xmCOPsN3gM73RvrlRK4XEE5quJzH0qXy3vClX8/z5XehwT+KDRZZ6wffjopAQuelP7Gf3G8K1zc92X60uE7LMA==' 'sha512-moELquslSKaKeM3tZ5K5KUHe3DiYiPAy+JqvAnfX4lsh4ynLyQJaPEW/FU8F72Mv8FiUv5tDMQn61hEBmW5qtg==' 'sha512-iIVONYnFVWNIkewDXE7DuHuDkXhkDrjq3dNEYWmDVvnSuDOTywUKy2ugAGqUY4xTkJZuwjbdyQTILvdtwMABOw==' 'sha512-YvX/PWbYeqUsx4BStLvSe9Y+PNSAv/tHAdYMdw7lKsNMyM/8Li+Zgawsc0X0pFjaMFgABF1rtMLAjlwis2Dx4g==' 'sha512-fBRrkb87Ge2WsjnMHE5dHw03MVBT+ZduvMqnxWhZtk3mM8qTapEGAUeYF3+yhGd0GoPBNOwvuBgU1DxQdSGauw==' 'sha512-o9M8vSuPaC9bCpOHkMpd3YIkoZ6f/FGE1LGUiMLlEAKcJZsLjzZuKstVKzVNvD6ue4EwmcRquVm8GJjySnR2gw==' 'sha512-qMtGN4iObNu7cBGBmE75Q+BOvsaW6hMH9e19kskk29Bv5Og/Ho27dibQV+opVjd6Jb2qY6nkddOdbU43VQvHVg==' 'sha512-vdMBTh0N8XDNVsTTyg1CYukRDB26+e9PnFj/k7czcnLtZkgCJEL5lNSuCSEVQVkEyEMiK/QcAfkQJLsRrVB3wA==' 'sha512-RsadMlJRN/EPeBfpKpFWdV5aN2lLleEm5TwlzJdng635jSVxRJ8iwDUxCFgBaqIbDj+cWdssfAN2jBa6pf8hDQ==' 'sha512-045BbG1+FadSb0XwTEP8tR8QZEkVtavYXb2HsA8DFIVJccz170aZNicoASdyykfaz3rPlhkWVmrft7nRhB9l+Q==' 'sha512-9T+dD5PGlxlmgi9doy/7dC240XnUnMBXfqwRPGFSOI62hv5ok4m8HOEQt3kQWYv7OxO6kbXknHeKCeRLWenCEA==' 'sha512-9+uM4NivHTWsPYM9liroto0T2tIJe9mWlgJ3rKX7EGX8vDF11ViDbXn83WGbulQXRpEBn8GhVm+bD6T+yI++Kg==' 'sha512-FtojSnQVtdjxL+j6c5vNr0NMz5WCcseBvuf2ar2cBggxyO5pLgGtchDVZtvP4OJ9W5pKqUKiimrSYTwWUIlvSA==' 'sha512-Rv7cctzwPU3tPQVDYyiOXt1JZ4Ap/3GjG9UbhlUWOUdj/mDeUZ6H7AHzCd6sXPvyta+JQeiLZAZvbXSIa1J9ug==' 'sha512-aZf/meLRxlpnNk1waw+ZZqKPXOosuZDiDyHa6mls7adlRDN92TQDVkuIGEq74Xad9Vgh/qRO9yGvYDYXZXviDA==' 'sha512-6bShVUY1ZB/2egZ4Tltdn3xExFpVNJ6wnZ6tfetrXn/yt8zbQqYPBGvK7t6qiwb/DEGpMPL9EO5Zkfe8tkOYWw==' 'sha512-oFPgYUxkrqF/0O2EHiIiF9aP5DIQImLW8XW5hGZ9KJNCDJEb1lYEveeuCbLapQkcrFb2Xrd3gk1hZfc2vcAmww==' 'sha512-GB/9C66ZVnAb/pgp2oQSJX0DKV/xZOYG79wem/rytmvOw29h1peCjkvD7tU/YHYZLoJidYfLhdsMY/jN/TPuGA==' 'sha512-3uMX/QNcqXCvpJqXCIFtR6xPhi6lMwBytEJZbIGkmAnsEB9hSMQEYWYTzh3ySS40ukoAXJvp11CnVLn9gIA5og==' 'sha512-GW25CG0+XkPC+PZzWIY1NQ5FsE0EmrGINhyq7C2V9opyNURCoIOYjI/bc/SMVvEsneOng6CdCwIx80uWoeJDSA==' 'sha512-YgTTZu0v6V9mS2gL4ZceYNQ0Apqz1xL3oRRrD2I0ucaFQmm/ROIsgEvpkE18Qc4PLdmAQDxZvQWlqCXwJs494g==' 'sha512-aY3a+W2ontkmkBkbIUVh5j1Cmo2keJCDbBNcZWSfSXKExh6NmxT0CsS3R4NheEx6PP87SYrmgG/N0c/ErfZu6A==' 'sha512-AsMPw3X07ik1WELjrwPGSpeZEwTlKMDqUk65QpUaKK60Db9v7vgQYvPpjsAK8O2V86/It6ShqhIiqX/4Zd/lEQ==' 'sha512-LFsXZIiTH8uk1SyfeApsUP0JXBOFScJDQNIRqvtz18W4cxCOsiX/qbVgTmiFVppLlGjaLrQRrDCrDNd5uaGUgw==' 'sha512-ssEHpdfc19YOUaufOdKhWcI0j9MpGu0d6uidgN9/nSqnaVcLM4Jv6pqMS5Gysbevb1J/8htX52L2uHhENfPOkg==' 'sha512-t2ZGdGmOp3lPKyF6mqTlMlydj/Kd82Blxj7MfhcL40mcjTl9EIjBcz20KrGb5x8ty35QQsTFzCPZCKc0QwZi+w==' 'sha512-B065DeZ6RRG/ehoF7b3KK+vYb4rK/tkD359MhMAN7ZCf6wrz346/BBnOfBWogdalkZ37Yk4lSCF14Iw/WzOggQ==' 'sha512-c1VI0I4L/bzglIuhjSUa0S5hD714mqYcJzmVBonJRlcdLEHWwp3KzKeNcfOABN5VDZUe99BjKmQnniJaC/W9Fw==' 'sha512-Tg2STko/jtSz/JBdwfviSw1KwoZKnzrFwjIj5tIZ/soxoUUvhZhbwtfcyJbBXeAbZLQ+BGQCMKOEeINGEqJAbw==' 'sha512-f1c3kSurSDwEyNjVxCFhU+Q7xPrnM98bcArYYXjimnJednKDIk8D7dhDJvULs3BqjzFFsECm7YngzYwH4HlyXw=='; style-src-elem 'self' 'sha512-xvPLzU8agX8bqbuTTTLFZantJ4hvA288YrfVHefjaFa79eiVCllTd+GAbLe+/a1I54t4rGPJTw2FMcWO+RFGJw==' https://fonts.googleapis.com 'sha512-swdahkaFC+CfFy4BGLM7GYIXXZJOhU08fmgQ7EcCUF4QpGYhgmQOEpwnUdaAwoNCy8KhCEmDj/kw1BbfSKav0Q==' 'sha512-823c9C/PnHMkuCjJIL6LKyRFd6J4swVkkejl/eRg7j/hcnKKSgBDtMsNHmilDNs3xtgPCDbSPvZGjqAW43duKQ==' 'sha512-pbgXhUzxSOZjYhQ7gsMNJmXnzo/I2CYytDfIZcKfJiVzVtWRnvhZUEQ/XHal2ZIDEks+dVI7G5ec8ARJxhyRcQ==' 'sha512-BABq/sceOY0hU5cpeQoFr3937SIsSqTK3bVJKjUTzW0LkREWyCJihqO17EWixuqQGFtYZq1UCK0mWZnWUltxjQ==' 'sha512-zn2TYoNoAdofGJnCeE4gc0/yUbe2boWA1cZt7AgaGK2o43YRWvKvgahvALPhvZe8MBj2tt0BZOvdDmcvyuqvrw==' 'sha512-NcdaVFaBI6sVfD0MOjkqoR8lRKBaFIX0ys49UW3x0nkNPww1NB2NHzGL4C1PUfEmeFk9bsEzOcXlEKQaPBB0dg==' 'sha512-I9Ro551Wa/Bym/Xps1OHHPgCGuU9/vgCfp4btZnfbyLWZrbIo+Nz8Tr6G0V4X80EOKZYqvE1aSSZUH78aWgA9g==' 'sha512-i3+b7SXO4eIvvrwFXjOilsTNEO4eAKgKAO+4hmohISmgwj18B5hxRmAtbu9YObHk4Ut/y1AFWZtD4PCv31quDw==' 'sha512-VSqguNf18JLezD2yalXuSkgAJetwc5gaZSL+4fJyImGF4zRNjRHojcEp1ywOml1k1qLnvMwwq3ZdmWScm+FWKg==' 'sha512-Izi41AzV5/hcVDWPn/UhPH9ktv6vubThYtpdjQjXJ0W9KHAgsEewlPQ2BTwlqAhyvCFZeX12YQzrglJadxJ4jw==' 'sha512-ttWMn6zpMrZ30LQ1ZaBZsJIzWcQGhoL21bw32RyqHfzv74dK3BgjoKcopg7bIqmEsMcMqcjMG+0JRXAaXOEUjA==' 'sha512-HEnsJdoeOXCq7boulcQJfkvMbq6TuFeyhYTyduT6yih9ZzQQFM0ZkVc3ksobks8cGo2MTvAKJ8N5dwNLBGT21A==' 'sha512-7hYFEBE95YyyBb8pdMSonOz/jLTmWPmJCSexKZ5ZVRpJR/HXImRHYPFAa5EX7znFwl/PQDyLHQRhdJXl3SOqmw==' 'sha512-tURKDo+/gT3/MVEXhmR3UawuEV0OQYtksyXn0blWxIBXZY1QJut0layv8UwxVlLoxMsdEOuvMAk1/fzQ5D0lbA==' 'sha512-xmCOPsN3gM73RvrlRK4XEE5quJzH0qXy3vClX8/z5XehwT+KDRZZ6wffjopAQuelP7Gf3G8K1zc92X60uE7LMA==' 'sha512-moELquslSKaKeM3tZ5K5KUHe3DiYiPAy+JqvAnfX4lsh4ynLyQJaPEW/FU8F72Mv8FiUv5tDMQn61hEBmW5qtg==' 'sha512-iIVONYnFVWNIkewDXE7DuHuDkXhkDrjq3dNEYWmDVvnSuDOTywUKy2ugAGqUY4xTkJZuwjbdyQTILvdtwMABOw==' 'sha512-YvX/PWbYeqUsx4BStLvSe9Y+PNSAv/tHAdYMdw7lKsNMyM/8Li+Zgawsc0X0pFjaMFgABF1rtMLAjlwis2Dx4g==' 'sha512-fBRrkb87Ge2WsjnMHE5dHw03MVBT+ZduvMqnxWhZtk3mM8qTapEGAUeYF3+yhGd0GoPBNOwvuBgU1DxQdSGauw==' 'sha512-o9M8vSuPaC9bCpOHkMpd3YIkoZ6f/FGE1LGUiMLlEAKcJZsLjzZuKstVKzVNvD6ue4EwmcRquVm8GJjySnR2gw==' 'sha512-qMtGN4iObNu7cBGBmE75Q+BOvsaW6hMH9e19kskk29Bv5Og/Ho27dibQV+opVjd6Jb2qY6nkddOdbU43VQvHVg==' 'sha512-vdMBTh0N8XDNVsTTyg1CYukRDB26+e9PnFj/k7czcnLtZkgCJEL5lNSuCSEVQVkEyEMiK/QcAfkQJLsRrVB3wA==' 'sha512-RsadMlJRN/EPeBfpKpFWdV5aN2lLleEm5TwlzJdng635jSVxRJ8iwDUxCFgBaqIbDj+cWdssfAN2jBa6pf8hDQ==' 'sha512-045BbG1+FadSb0XwTEP8tR8QZEkVtavYXb2HsA8DFIVJccz170aZNicoASdyykfaz3rPlhkWVmrft7nRhB9l+Q==' 'sha512-9T+dD5PGlxlmgi9doy/7dC240XnUnMBXfqwRPGFSOI62hv5ok4m8HOEQt3kQWYv7OxO6kbXknHeKCeRLWenCEA==' 'sha512-9+uM4NivHTWsPYM9liroto0T2tIJe9mWlgJ3rKX7EGX8vDF11ViDbXn83WGbulQXRpEBn8GhVm+bD6T+yI++Kg==' 'sha512-FtojSnQVtdjxL+j6c5vNr0NMz5WCcseBvuf2ar2cBggxyO5pLgGtchDVZtvP4OJ9W5pKqUKiimrSYTwWUIlvSA==' 'sha512-Rv7cctzwPU3tPQVDYyiOXt1JZ4Ap/3GjG9UbhlUWOUdj/mDeUZ6H7AHzCd6sXPvyta+JQeiLZAZvbXSIa1J9ug==' 'sha512-aZf/meLRxlpnNk1waw+ZZqKPXOosuZDiDyHa6mls7adlRDN92TQDVkuIGEq74Xad9Vgh/qRO9yGvYDYXZXviDA==' 'sha512-6bShVUY1ZB/2egZ4Tltdn3xExFpVNJ6wnZ6tfetrXn/yt8zbQqYPBGvK7t6qiwb/DEGpMPL9EO5Zkfe8tkOYWw==' 'sha512-oFPgYUxkrqF/0O2EHiIiF9aP5DIQImLW8XW5hGZ9KJNCDJEb1lYEveeuCbLapQkcrFb2Xrd3gk1hZfc2vcAmww==' 'sha512-GB/9C66ZVnAb/pgp2oQSJX0DKV/xZOYG79wem/rytmvOw29h1peCjkvD7tU/YHYZLoJidYfLhdsMY/jN/TPuGA==' 'sha512-3uMX/QNcqXCvpJqXCIFtR6xPhi6lMwBytEJZbIGkmAnsEB9hSMQEYWYTzh3ySS40ukoAXJvp11CnVLn9gIA5og==' 'sha512-GW25CG0+XkPC+PZzWIY1NQ5FsE0EmrGINhyq7C2V9opyNURCoIOYjI/bc/SMVvEsneOng6CdCwIx80uWoeJDSA==' 'sha512-YgTTZu0v6V9mS2gL4ZceYNQ0Apqz1xL3oRRrD2I0ucaFQmm/ROIsgEvpkE18Qc4PLdmAQDxZvQWlqCXwJs494g==' 'sha512-aY3a+W2ontkmkBkbIUVh5j1Cmo2keJCDbBNcZWSfSXKExh6NmxT0CsS3R4NheEx6PP87SYrmgG/N0c/ErfZu6A==' 'sha512-AsMPw3X07ik1WELjrwPGSpeZEwTlKMDqUk65QpUaKK60Db9v7vgQYvPpjsAK8O2V86/It6ShqhIiqX/4Zd/lEQ==' 'sha512-LFsXZIiTH8uk1SyfeApsUP0JXBOFScJDQNIRqvtz18W4cxCOsiX/qbVgTmiFVppLlGjaLrQRrDCrDNd5uaGUgw==' 'sha512-ssEHpdfc19YOUaufOdKhWcI0j9MpGu0d6uidgN9/nSqnaVcLM4Jv6pqMS5Gysbevb1J/8htX52L2uHhENfPOkg==' 'sha512-t2ZGdGmOp3lPKyF6mqTlMlydj/Kd82Blxj7MfhcL40mcjTl9EIjBcz20KrGb5x8ty35QQsTFzCPZCKc0QwZi+w==' 'sha512-B065DeZ6RRG/ehoF7b3KK+vYb4rK/tkD359MhMAN7ZCf6wrz346/BBnOfBWogdalkZ37Yk4lSCF14Iw/WzOggQ==' 'sha512-c1VI0I4L/bzglIuhjSUa0S5hD714mqYcJzmVBonJRlcdLEHWwp3KzKeNcfOABN5VDZUe99BjKmQnniJaC/W9Fw==' 'sha512-Tg2STko/jtSz/JBdwfviSw1KwoZKnzrFwjIj5tIZ/soxoUUvhZhbwtfcyJbBXeAbZLQ+BGQCMKOEeINGEqJAbw==' 'sha512-f1c3kSurSDwEyNjVxCFhU+Q7xPrnM98bcArYYXjimnJednKDIk8D7dhDJvULs3BqjzFFsECm7YngzYwH4HlyXw=='; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://diracgroup.store https://secure.diracgroup.store https://api.diracgroup.store https://fonts.googleapis.com https://fonts.gstatic.com; form-action 'self' https://api.diracgroup.store; frame-src 'none'; child-src 'none'; worker-src 'self' blob:; media-src 'self' data: blob:; manifest-src 'self'; upgrade-insecure-requests">
+<meta id="dirac-csp-sha512-v1" http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'sha512-7yF6fpL2TAEiGdDz/jNtyJOjx1U2btYfe74FPBs37fWczNeISkoGHydQgM4aVBMrqxTydg9Hp5BsPOthjQDyzA==' 'sha512-dcT0qXdUbXRfPocU46S0ZRZBgColrRCt0C+JUcMsv63OFmDf1iASIHK2/c3y89C7tMkJrpuB+kCh8eChz5D1iA==' 'sha512-tw/rCB11Sih/koLtKj6JWYuBRb2oP8Z+0vvkoSPUkD0P4roTKZmGqXHkERcyHqKyWZ0/nd8AAN3i/9MlKl448Q==' 'sha512-l+IwaNieZyBApwX5Xc+sObORx523xiWfRFXcwbUuqngFkupM/P/Ifzvd1AG0DBnKU6Yra+BanWbX4cT8YSw5CA==' 'sha512-+HDFH35scMEOLX9FXGHnz/vcM0bjWi7s8dAu1tAKgkhBJ20iEGzQPoybP1gUfq7yrw3vGMI7qgNlRv3oDMSVkg==' 'sha512-EAWVpFYuW3mbSwFf3ihZ7q6cvLBXsJRGvRmKownyArmzpu0rH2BR6TAIcWqgQevcdlywZENe3eJrH/NIp4i7eg==' 'sha512-XDU/LNHLU3WtqUxtqLXGEbh0Ov38hgX5QpQCt+i7S7Y3LRX8bRZrRqQvQl6xz2zCnZFcOINAQqkZsDZ+PIlZTw==' 'sha512-QDX879FueZhVZFZFX0n+phLeIkVIh6cgiYTlC357I3UIKXrP2bS3YkjScfHWmHjZviTAW8uzAh8vDrfyu8UbFA==' 'sha512-kktS7corYjQTG2hRz67eL9AzMFzuQ912ucLi/JOven5YheK9er+e1Xz8Idqw4J599GSwyyBXEZo6KQBJm/FMqg==' 'sha512-K1MWkmjyvjUAWktjR1Q5YJvI2ZyGeBfURJFBF5wAceI0CeK0T+HQ5Rr04s/y0/ZdHpvTkNx8XYYQFzJpTVcsEw==' 'sha512-Du2fNyYTUN1Zltua+n3lH8on0RzFkBzDBRvrX9jR2bDU7aPAbr+uvB5QKdd0FRVrCRu9MwUUDErLr09AF3Y0Rw==' 'sha512-UxwgVtbMrHVHuDv5xTrHUWA6d+8MtypzK7tgV8SvwDvZTBnVOfk54CD/+a845hDrmfl/hPwI/KUzxVhr0GtL2w==' 'sha512-RIoyd/4UOJBP5wt/xr1NnWbaU3waGSjH2bCdDxK0aoZ+Ih+eH9d0lOYeW3a0ulunxL2IRNIpPs+/I90lkg0lNQ==' 'sha512-WFRiqCpHMZbZ9wBEi7haPtnPXL8Pyb3RfYZIl8n0pSynj/ybtksCa8yRAXPTXNOzIcgm8fHUde8XPLrqfnfa5Q==' 'sha512-XNamYgaD3HnMI8rUQeOrCP/XcsNF6SL4730fXFAWltu+44LbVKb+fnHGlRGd2LAMJBaTGh42jlODxXFNsHiqLg==' 'sha512-WxTUPfCh/U53oWT+DEuRn8k+oImDA4XrM5Yh8ivubjFQnt0/wZ1obxzjLUZeqfqQ1/GCvdrTR7sgfaZUmrG2Ng==' 'sha512-KB2zLEorP21spcAnMaZx2W4aFiVN1RLZwojo6iGdcH5Q62EGYaJPcDVKgSoiFfduGqO4X7q9qBCV1BAihOeByQ==' 'sha512-oXdo5a4+uGsnMTAxl6IML512gUkOnY5m4zhLYRNliGNXh/VsvwYXpky8KS0405dD/3AScaC+VVnm6nF9k7t45w==' 'sha512-MimukslXEckswvmeYDx53Tk/eK9bA8mHNvUngp4MBdeBCGPRmP6DYp2qRzoAdV8o0VpHzCn+PuOU66JEM57Pqg==' 'sha512-HogybZzshOq8hCqxp7t2NdF2ba9JrU9Qj+eywRFR9V6L5/KjJlZr1l/otFFTvYsvA4Rasx9s5dfuSkQUejS7sw==' 'sha512-eKewiKbPcpi4/YZ0CCxn2Hc+qp/EpCm/UWcDKQ73Vs4S/6889mjaJvtkLcfWKyDsFP8SDZBzsezAXfmlzmt1jA==' 'sha512-ZxqLPAw53DIdCGbHYDR7+YT6UFz82eebSVMjBkrJcD9QuR5BsOFp88oVVqa9HhsPhqF+znohhv8KLxsP6tIbLA==' 'sha512-SKB6OOF93AmzHOCT4rOuupCxccET8bKMZXDr+IztXF2ln9UWfARwe1WDxrop7TJ3j+yvg7lkkmSXF3SQnyUPAg==' 'sha512-R7TGx9lzJ8jwOcJvWKogRADoyPxTjsiykxYCqmfF6JhcAbYEQvHGDpJ9XrX+bbVncX3scvB5E7yGzRcaUNKJ0w==' 'sha512-+Urzj9Gkh75tipj752nFWbghs4EkVd0mVqR90V4g4OoFMx+uDL0smYGnJwxa4HzaJQO22/J91FSeDoOIlcHvhQ==' 'sha512-K0W4UxfxbDmVjMztFPPeRPkWHY7qxiw6VkS+pX/Q3FUCkyjzbE8torQegIQIlzcKUD4rFUZZoupv5RAyU2UxyA==' 'sha512-cgV2hTKL/UNuG6RAobAKVCOk7yRx5clk1bt/C0rwBnjFI/p74ijyVq80mztVlZ1emvdWdq6+8ThjGM23f5JwZA==' 'sha512-LbCSsm2pvWKaXde7q5DwM45G0b49rfwDUXJ8VfwKgDSLSp2RyryU7CStL2Hm3gmuQdSzptBnVuQGDnK+4JQzsg==' 'sha512-2UCaz2I8HFzjxwr0EoNBWNCW7vbEMdv8AtWqNJY+P/52EJHcb94jtxMrZioP3YEfsUvko4p4U6mYvNvY6Mg9DQ==' 'sha512-z3pkhSB8FYXcG7J8rJx4xGrBsXcCM2sMJEV7FGPCaNPGpqRZ7BvVskAcdvlkeUOSaORwKpiGRhOgAlDPYqsroQ==' 'sha512-40hhVGP/j+MnwX5eSDnJclgCEX8J1dKHwBrtBGkWnhfhVNS+4NxO5Emn1XX/FBpIDTfJvlVzMEKW0dLPdaT7pA==' 'sha512-rwtia4MIqd4wtjMwMg/leen4GdxL0+fpw+RnQ6YE03RWKblklFd1gowaVoTP6kkQwNz3ErEogZVYgIBExFQifA==' 'sha512-VBs4ysx9bpLskkQfWPxisiO2eNPnl6K9TN4zVJruQ8UXYYU5WL2tcRxS9EeDIDFWBGlAPVOf+Dv0RHFTpXNsTg==' 'sha512-yiRrA5pT0hEfbajiB5M93YIyTaJm14/gADeAfCPUqGyMEr0cX8cybYGpNMC0Gwy01OdV0hwqPLnDhzxO2nLKvA==' 'sha512-YFxgiOGLIc0YpivQEJRP97j2nz67eAu2oSqvYr9BfTn2zet/PWk/s5OeLFMmv1pBZ7xlPfIzW5aBMr6z5QVWtw==' 'sha512-kFcLE95hcOZ1pHFKqcoZoCKoGCz9xSLNq5jx91+KYlgz5IgL8L1c40DEYAtmtBjKQLk3sgvCKaHH8vvwWoEYaQ==' 'sha512-0pXEKhmHrfdqOWX134zQUuHjuU3lgeaBjYHcTKp17hIoV2eujdwX9zXCa8Q2nCyWqlWNWDTRwFuEK03Xzd8VIA=='; script-src-elem 'self' 'sha512-7yF6fpL2TAEiGdDz/jNtyJOjx1U2btYfe74FPBs37fWczNeISkoGHydQgM4aVBMrqxTydg9Hp5BsPOthjQDyzA==' 'sha512-dcT0qXdUbXRfPocU46S0ZRZBgColrRCt0C+JUcMsv63OFmDf1iASIHK2/c3y89C7tMkJrpuB+kCh8eChz5D1iA==' 'sha512-tw/rCB11Sih/koLtKj6JWYuBRb2oP8Z+0vvkoSPUkD0P4roTKZmGqXHkERcyHqKyWZ0/nd8AAN3i/9MlKl448Q==' 'sha512-l+IwaNieZyBApwX5Xc+sObORx523xiWfRFXcwbUuqngFkupM/P/Ifzvd1AG0DBnKU6Yra+BanWbX4cT8YSw5CA==' 'sha512-+HDFH35scMEOLX9FXGHnz/vcM0bjWi7s8dAu1tAKgkhBJ20iEGzQPoybP1gUfq7yrw3vGMI7qgNlRv3oDMSVkg==' 'sha512-EAWVpFYuW3mbSwFf3ihZ7q6cvLBXsJRGvRmKownyArmzpu0rH2BR6TAIcWqgQevcdlywZENe3eJrH/NIp4i7eg==' 'sha512-XDU/LNHLU3WtqUxtqLXGEbh0Ov38hgX5QpQCt+i7S7Y3LRX8bRZrRqQvQl6xz2zCnZFcOINAQqkZsDZ+PIlZTw==' 'sha512-QDX879FueZhVZFZFX0n+phLeIkVIh6cgiYTlC357I3UIKXrP2bS3YkjScfHWmHjZviTAW8uzAh8vDrfyu8UbFA==' 'sha512-kktS7corYjQTG2hRz67eL9AzMFzuQ912ucLi/JOven5YheK9er+e1Xz8Idqw4J599GSwyyBXEZo6KQBJm/FMqg==' 'sha512-K1MWkmjyvjUAWktjR1Q5YJvI2ZyGeBfURJFBF5wAceI0CeK0T+HQ5Rr04s/y0/ZdHpvTkNx8XYYQFzJpTVcsEw==' 'sha512-Du2fNyYTUN1Zltua+n3lH8on0RzFkBzDBRvrX9jR2bDU7aPAbr+uvB5QKdd0FRVrCRu9MwUUDErLr09AF3Y0Rw==' 'sha512-UxwgVtbMrHVHuDv5xTrHUWA6d+8MtypzK7tgV8SvwDvZTBnVOfk54CD/+a845hDrmfl/hPwI/KUzxVhr0GtL2w==' 'sha512-RIoyd/4UOJBP5wt/xr1NnWbaU3waGSjH2bCdDxK0aoZ+Ih+eH9d0lOYeW3a0ulunxL2IRNIpPs+/I90lkg0lNQ==' 'sha512-WFRiqCpHMZbZ9wBEi7haPtnPXL8Pyb3RfYZIl8n0pSynj/ybtksCa8yRAXPTXNOzIcgm8fHUde8XPLrqfnfa5Q==' 'sha512-XNamYgaD3HnMI8rUQeOrCP/XcsNF6SL4730fXFAWltu+44LbVKb+fnHGlRGd2LAMJBaTGh42jlODxXFNsHiqLg==' 'sha512-WxTUPfCh/U53oWT+DEuRn8k+oImDA4XrM5Yh8ivubjFQnt0/wZ1obxzjLUZeqfqQ1/GCvdrTR7sgfaZUmrG2Ng==' 'sha512-KB2zLEorP21spcAnMaZx2W4aFiVN1RLZwojo6iGdcH5Q62EGYaJPcDVKgSoiFfduGqO4X7q9qBCV1BAihOeByQ==' 'sha512-oXdo5a4+uGsnMTAxl6IML512gUkOnY5m4zhLYRNliGNXh/VsvwYXpky8KS0405dD/3AScaC+VVnm6nF9k7t45w==' 'sha512-MimukslXEckswvmeYDx53Tk/eK9bA8mHNvUngp4MBdeBCGPRmP6DYp2qRzoAdV8o0VpHzCn+PuOU66JEM57Pqg==' 'sha512-HogybZzshOq8hCqxp7t2NdF2ba9JrU9Qj+eywRFR9V6L5/KjJlZr1l/otFFTvYsvA4Rasx9s5dfuSkQUejS7sw==' 'sha512-eKewiKbPcpi4/YZ0CCxn2Hc+qp/EpCm/UWcDKQ73Vs4S/6889mjaJvtkLcfWKyDsFP8SDZBzsezAXfmlzmt1jA==' 'sha512-ZxqLPAw53DIdCGbHYDR7+YT6UFz82eebSVMjBkrJcD9QuR5BsOFp88oVVqa9HhsPhqF+znohhv8KLxsP6tIbLA==' 'sha512-SKB6OOF93AmzHOCT4rOuupCxccET8bKMZXDr+IztXF2ln9UWfARwe1WDxrop7TJ3j+yvg7lkkmSXF3SQnyUPAg==' 'sha512-R7TGx9lzJ8jwOcJvWKogRADoyPxTjsiykxYCqmfF6JhcAbYEQvHGDpJ9XrX+bbVncX3scvB5E7yGzRcaUNKJ0w==' 'sha512-+Urzj9Gkh75tipj752nFWbghs4EkVd0mVqR90V4g4OoFMx+uDL0smYGnJwxa4HzaJQO22/J91FSeDoOIlcHvhQ==' 'sha512-K0W4UxfxbDmVjMztFPPeRPkWHY7qxiw6VkS+pX/Q3FUCkyjzbE8torQegIQIlzcKUD4rFUZZoupv5RAyU2UxyA==' 'sha512-cgV2hTKL/UNuG6RAobAKVCOk7yRx5clk1bt/C0rwBnjFI/p74ijyVq80mztVlZ1emvdWdq6+8ThjGM23f5JwZA==' 'sha512-LbCSsm2pvWKaXde7q5DwM45G0b49rfwDUXJ8VfwKgDSLSp2RyryU7CStL2Hm3gmuQdSzptBnVuQGDnK+4JQzsg==' 'sha512-2UCaz2I8HFzjxwr0EoNBWNCW7vbEMdv8AtWqNJY+P/52EJHcb94jtxMrZioP3YEfsUvko4p4U6mYvNvY6Mg9DQ==' 'sha512-z3pkhSB8FYXcG7J8rJx4xGrBsXcCM2sMJEV7FGPCaNPGpqRZ7BvVskAcdvlkeUOSaORwKpiGRhOgAlDPYqsroQ==' 'sha512-40hhVGP/j+MnwX5eSDnJclgCEX8J1dKHwBrtBGkWnhfhVNS+4NxO5Emn1XX/FBpIDTfJvlVzMEKW0dLPdaT7pA==' 'sha512-rwtia4MIqd4wtjMwMg/leen4GdxL0+fpw+RnQ6YE03RWKblklFd1gowaVoTP6kkQwNz3ErEogZVYgIBExFQifA==' 'sha512-VBs4ysx9bpLskkQfWPxisiO2eNPnl6K9TN4zVJruQ8UXYYU5WL2tcRxS9EeDIDFWBGlAPVOf+Dv0RHFTpXNsTg==' 'sha512-yiRrA5pT0hEfbajiB5M93YIyTaJm14/gADeAfCPUqGyMEr0cX8cybYGpNMC0Gwy01OdV0hwqPLnDhzxO2nLKvA==' 'sha512-YFxgiOGLIc0YpivQEJRP97j2nz67eAu2oSqvYr9BfTn2zet/PWk/s5OeLFMmv1pBZ7xlPfIzW5aBMr6z5QVWtw==' 'sha512-kFcLE95hcOZ1pHFKqcoZoCKoGCz9xSLNq5jx91+KYlgz5IgL8L1c40DEYAtmtBjKQLk3sgvCKaHH8vvwWoEYaQ==' 'sha512-0pXEKhmHrfdqOWX134zQUuHjuU3lgeaBjYHcTKp17hIoV2eujdwX9zXCa8Q2nCyWqlWNWDTRwFuEK03Xzd8VIA=='; script-src-attr 'unsafe-hashes' 'sha512-ZZOXFnQLKr2DK9UXztKaZK8J0tNko3QjZ59ij1qq0LRliAwMQCezAuE8J+5ef6/tyNH3hZbil0j7xMumeQQFSA==' 'sha512-h4tRh/EP7lcPhgrQkcP7kdUh2nkUHvsJqQE6VGKoGHz1fwaDRYMYO2pcLfgCqVq5qg+3cWmzduqAJpwbhOR26A==' 'sha512-mGB6thUEkmh1ZUJxak/5zPgQO8Mkm57qWcZ4ygqJY6VBg8fkT6hIs5MH8NHzzSILwfdVoDgKLLScqUoY8duMkA=='; style-src 'self' 'sha512-xvPLzU8agX8bqbuTTTLFZantJ4hvA288YrfVHefjaFa79eiVCllTd+GAbLe+/a1I54t4rGPJTw2FMcWO+RFGJw==' https://fonts.googleapis.com 'sha512-swdahkaFC+CfFy4BGLM7GYIXXZJOhU08fmgQ7EcCUF4QpGYhgmQOEpwnUdaAwoNCy8KhCEmDj/kw1BbfSKav0Q==' 'sha512-823c9C/PnHMkuCjJIL6LKyRFd6J4swVkkejl/eRg7j/hcnKKSgBDtMsNHmilDNs3xtgPCDbSPvZGjqAW43duKQ==' 'sha512-pbgXhUzxSOZjYhQ7gsMNJmXnzo/I2CYytDfIZcKfJiVzVtWRnvhZUEQ/XHal2ZIDEks+dVI7G5ec8ARJxhyRcQ==' 'sha512-BABq/sceOY0hU5cpeQoFr3937SIsSqTK3bVJKjUTzW0LkREWyCJihqO17EWixuqQGFtYZq1UCK0mWZnWUltxjQ==' 'sha512-zn2TYoNoAdofGJnCeE4gc0/yUbe2boWA1cZt7AgaGK2o43YRWvKvgahvALPhvZe8MBj2tt0BZOvdDmcvyuqvrw==' 'sha512-NcdaVFaBI6sVfD0MOjkqoR8lRKBaFIX0ys49UW3x0nkNPww1NB2NHzGL4C1PUfEmeFk9bsEzOcXlEKQaPBB0dg==' 'sha512-I9Ro551Wa/Bym/Xps1OHHPgCGuU9/vgCfp4btZnfbyLWZrbIo+Nz8Tr6G0V4X80EOKZYqvE1aSSZUH78aWgA9g==' 'sha512-i3+b7SXO4eIvvrwFXjOilsTNEO4eAKgKAO+4hmohISmgwj18B5hxRmAtbu9YObHk4Ut/y1AFWZtD4PCv31quDw==' 'sha512-VSqguNf18JLezD2yalXuSkgAJetwc5gaZSL+4fJyImGF4zRNjRHojcEp1ywOml1k1qLnvMwwq3ZdmWScm+FWKg==' 'sha512-Izi41AzV5/hcVDWPn/UhPH9ktv6vubThYtpdjQjXJ0W9KHAgsEewlPQ2BTwlqAhyvCFZeX12YQzrglJadxJ4jw==' 'sha512-ttWMn6zpMrZ30LQ1ZaBZsJIzWcQGhoL21bw32RyqHfzv74dK3BgjoKcopg7bIqmEsMcMqcjMG+0JRXAaXOEUjA==' 'sha512-HEnsJdoeOXCq7boulcQJfkvMbq6TuFeyhYTyduT6yih9ZzQQFM0ZkVc3ksobks8cGo2MTvAKJ8N5dwNLBGT21A==' 'sha512-7hYFEBE95YyyBb8pdMSonOz/jLTmWPmJCSexKZ5ZVRpJR/HXImRHYPFAa5EX7znFwl/PQDyLHQRhdJXl3SOqmw==' 'sha512-tURKDo+/gT3/MVEXhmR3UawuEV0OQYtksyXn0blWxIBXZY1QJut0layv8UwxVlLoxMsdEOuvMAk1/fzQ5D0lbA==' 'sha512-xmCOPsN3gM73RvrlRK4XEE5quJzH0qXy3vClX8/z5XehwT+KDRZZ6wffjopAQuelP7Gf3G8K1zc92X60uE7LMA==' 'sha512-moELquslSKaKeM3tZ5K5KUHe3DiYiPAy+JqvAnfX4lsh4ynLyQJaPEW/FU8F72Mv8FiUv5tDMQn61hEBmW5qtg==' 'sha512-iIVONYnFVWNIkewDXE7DuHuDkXhkDrjq3dNEYWmDVvnSuDOTywUKy2ugAGqUY4xTkJZuwjbdyQTILvdtwMABOw==' 'sha512-YvX/PWbYeqUsx4BStLvSe9Y+PNSAv/tHAdYMdw7lKsNMyM/8Li+Zgawsc0X0pFjaMFgABF1rtMLAjlwis2Dx4g==' 'sha512-fBRrkb87Ge2WsjnMHE5dHw03MVBT+ZduvMqnxWhZtk3mM8qTapEGAUeYF3+yhGd0GoPBNOwvuBgU1DxQdSGauw==' 'sha512-o9M8vSuPaC9bCpOHkMpd3YIkoZ6f/FGE1LGUiMLlEAKcJZsLjzZuKstVKzVNvD6ue4EwmcRquVm8GJjySnR2gw==' 'sha512-qMtGN4iObNu7cBGBmE75Q+BOvsaW6hMH9e19kskk29Bv5Og/Ho27dibQV+opVjd6Jb2qY6nkddOdbU43VQvHVg==' 'sha512-vdMBTh0N8XDNVsTTyg1CYukRDB26+e9PnFj/k7czcnLtZkgCJEL5lNSuCSEVQVkEyEMiK/QcAfkQJLsRrVB3wA==' 'sha512-RsadMlJRN/EPeBfpKpFWdV5aN2lLleEm5TwlzJdng635jSVxRJ8iwDUxCFgBaqIbDj+cWdssfAN2jBa6pf8hDQ==' 'sha512-045BbG1+FadSb0XwTEP8tR8QZEkVtavYXb2HsA8DFIVJccz170aZNicoASdyykfaz3rPlhkWVmrft7nRhB9l+Q==' 'sha512-9T+dD5PGlxlmgi9doy/7dC240XnUnMBXfqwRPGFSOI62hv5ok4m8HOEQt3kQWYv7OxO6kbXknHeKCeRLWenCEA==' 'sha512-9+uM4NivHTWsPYM9liroto0T2tIJe9mWlgJ3rKX7EGX8vDF11ViDbXn83WGbulQXRpEBn8GhVm+bD6T+yI++Kg==' 'sha512-FtojSnQVtdjxL+j6c5vNr0NMz5WCcseBvuf2ar2cBggxyO5pLgGtchDVZtvP4OJ9W5pKqUKiimrSYTwWUIlvSA==' 'sha512-Rv7cctzwPU3tPQVDYyiOXt1JZ4Ap/3GjG9UbhlUWOUdj/mDeUZ6H7AHzCd6sXPvyta+JQeiLZAZvbXSIa1J9ug==' 'sha512-aZf/meLRxlpnNk1waw+ZZqKPXOosuZDiDyHa6mls7adlRDN92TQDVkuIGEq74Xad9Vgh/qRO9yGvYDYXZXviDA==' 'sha512-6bShVUY1ZB/2egZ4Tltdn3xExFpVNJ6wnZ6tfetrXn/yt8zbQqYPBGvK7t6qiwb/DEGpMPL9EO5Zkfe8tkOYWw==' 'sha512-oFPgYUxkrqF/0O2EHiIiF9aP5DIQImLW8XW5hGZ9KJNCDJEb1lYEveeuCbLapQkcrFb2Xrd3gk1hZfc2vcAmww==' 'sha512-GB/9C66ZVnAb/pgp2oQSJX0DKV/xZOYG79wem/rytmvOw29h1peCjkvD7tU/YHYZLoJidYfLhdsMY/jN/TPuGA==' 'sha512-3uMX/QNcqXCvpJqXCIFtR6xPhi6lMwBytEJZbIGkmAnsEB9hSMQEYWYTzh3ySS40ukoAXJvp11CnVLn9gIA5og==' 'sha512-GW25CG0+XkPC+PZzWIY1NQ5FsE0EmrGINhyq7C2V9opyNURCoIOYjI/bc/SMVvEsneOng6CdCwIx80uWoeJDSA==' 'sha512-YgTTZu0v6V9mS2gL4ZceYNQ0Apqz1xL3oRRrD2I0ucaFQmm/ROIsgEvpkE18Qc4PLdmAQDxZvQWlqCXwJs494g==' 'sha512-aY3a+W2ontkmkBkbIUVh5j1Cmo2keJCDbBNcZWSfSXKExh6NmxT0CsS3R4NheEx6PP87SYrmgG/N0c/ErfZu6A==' 'sha512-AsMPw3X07ik1WELjrwPGSpeZEwTlKMDqUk65QpUaKK60Db9v7vgQYvPpjsAK8O2V86/It6ShqhIiqX/4Zd/lEQ==' 'sha512-LFsXZIiTH8uk1SyfeApsUP0JXBOFScJDQNIRqvtz18W4cxCOsiX/qbVgTmiFVppLlGjaLrQRrDCrDNd5uaGUgw==' 'sha512-ssEHpdfc19YOUaufOdKhWcI0j9MpGu0d6uidgN9/nSqnaVcLM4Jv6pqMS5Gysbevb1J/8htX52L2uHhENfPOkg==' 'sha512-t2ZGdGmOp3lPKyF6mqTlMlydj/Kd82Blxj7MfhcL40mcjTl9EIjBcz20KrGb5x8ty35QQsTFzCPZCKc0QwZi+w==' 'sha512-B065DeZ6RRG/ehoF7b3KK+vYb4rK/tkD359MhMAN7ZCf6wrz346/BBnOfBWogdalkZ37Yk4lSCF14Iw/WzOggQ==' 'sha512-c1VI0I4L/bzglIuhjSUa0S5hD714mqYcJzmVBonJRlcdLEHWwp3KzKeNcfOABN5VDZUe99BjKmQnniJaC/W9Fw==' 'sha512-Tg2STko/jtSz/JBdwfviSw1KwoZKnzrFwjIj5tIZ/soxoUUvhZhbwtfcyJbBXeAbZLQ+BGQCMKOEeINGEqJAbw==' 'sha512-f1c3kSurSDwEyNjVxCFhU+Q7xPrnM98bcArYYXjimnJednKDIk8D7dhDJvULs3BqjzFFsECm7YngzYwH4HlyXw=='; style-src-elem 'self' 'sha512-xvPLzU8agX8bqbuTTTLFZantJ4hvA288YrfVHefjaFa79eiVCllTd+GAbLe+/a1I54t4rGPJTw2FMcWO+RFGJw==' https://fonts.googleapis.com 'sha512-swdahkaFC+CfFy4BGLM7GYIXXZJOhU08fmgQ7EcCUF4QpGYhgmQOEpwnUdaAwoNCy8KhCEmDj/kw1BbfSKav0Q==' 'sha512-823c9C/PnHMkuCjJIL6LKyRFd6J4swVkkejl/eRg7j/hcnKKSgBDtMsNHmilDNs3xtgPCDbSPvZGjqAW43duKQ==' 'sha512-pbgXhUzxSOZjYhQ7gsMNJmXnzo/I2CYytDfIZcKfJiVzVtWRnvhZUEQ/XHal2ZIDEks+dVI7G5ec8ARJxhyRcQ==' 'sha512-BABq/sceOY0hU5cpeQoFr3937SIsSqTK3bVJKjUTzW0LkREWyCJihqO17EWixuqQGFtYZq1UCK0mWZnWUltxjQ==' 'sha512-zn2TYoNoAdofGJnCeE4gc0/yUbe2boWA1cZt7AgaGK2o43YRWvKvgahvALPhvZe8MBj2tt0BZOvdDmcvyuqvrw==' 'sha512-NcdaVFaBI6sVfD0MOjkqoR8lRKBaFIX0ys49UW3x0nkNPww1NB2NHzGL4C1PUfEmeFk9bsEzOcXlEKQaPBB0dg==' 'sha512-I9Ro551Wa/Bym/Xps1OHHPgCGuU9/vgCfp4btZnfbyLWZrbIo+Nz8Tr6G0V4X80EOKZYqvE1aSSZUH78aWgA9g==' 'sha512-i3+b7SXO4eIvvrwFXjOilsTNEO4eAKgKAO+4hmohISmgwj18B5hxRmAtbu9YObHk4Ut/y1AFWZtD4PCv31quDw==' 'sha512-VSqguNf18JLezD2yalXuSkgAJetwc5gaZSL+4fJyImGF4zRNjRHojcEp1ywOml1k1qLnvMwwq3ZdmWScm+FWKg==' 'sha512-Izi41AzV5/hcVDWPn/UhPH9ktv6vubThYtpdjQjXJ0W9KHAgsEewlPQ2BTwlqAhyvCFZeX12YQzrglJadxJ4jw==' 'sha512-ttWMn6zpMrZ30LQ1ZaBZsJIzWcQGhoL21bw32RyqHfzv74dK3BgjoKcopg7bIqmEsMcMqcjMG+0JRXAaXOEUjA==' 'sha512-HEnsJdoeOXCq7boulcQJfkvMbq6TuFeyhYTyduT6yih9ZzQQFM0ZkVc3ksobks8cGo2MTvAKJ8N5dwNLBGT21A==' 'sha512-7hYFEBE95YyyBb8pdMSonOz/jLTmWPmJCSexKZ5ZVRpJR/HXImRHYPFAa5EX7znFwl/PQDyLHQRhdJXl3SOqmw==' 'sha512-tURKDo+/gT3/MVEXhmR3UawuEV0OQYtksyXn0blWxIBXZY1QJut0layv8UwxVlLoxMsdEOuvMAk1/fzQ5D0lbA==' 'sha512-xmCOPsN3gM73RvrlRK4XEE5quJzH0qXy3vClX8/z5XehwT+KDRZZ6wffjopAQuelP7Gf3G8K1zc92X60uE7LMA==' 'sha512-moELquslSKaKeM3tZ5K5KUHe3DiYiPAy+JqvAnfX4lsh4ynLyQJaPEW/FU8F72Mv8FiUv5tDMQn61hEBmW5qtg==' 'sha512-iIVONYnFVWNIkewDXE7DuHuDkXhkDrjq3dNEYWmDVvnSuDOTywUKy2ugAGqUY4xTkJZuwjbdyQTILvdtwMABOw==' 'sha512-YvX/PWbYeqUsx4BStLvSe9Y+PNSAv/tHAdYMdw7lKsNMyM/8Li+Zgawsc0X0pFjaMFgABF1rtMLAjlwis2Dx4g==' 'sha512-fBRrkb87Ge2WsjnMHE5dHw03MVBT+ZduvMqnxWhZtk3mM8qTapEGAUeYF3+yhGd0GoPBNOwvuBgU1DxQdSGauw==' 'sha512-o9M8vSuPaC9bCpOHkMpd3YIkoZ6f/FGE1LGUiMLlEAKcJZsLjzZuKstVKzVNvD6ue4EwmcRquVm8GJjySnR2gw==' 'sha512-qMtGN4iObNu7cBGBmE75Q+BOvsaW6hMH9e19kskk29Bv5Og/Ho27dibQV+opVjd6Jb2qY6nkddOdbU43VQvHVg==' 'sha512-vdMBTh0N8XDNVsTTyg1CYukRDB26+e9PnFj/k7czcnLtZkgCJEL5lNSuCSEVQVkEyEMiK/QcAfkQJLsRrVB3wA==' 'sha512-RsadMlJRN/EPeBfpKpFWdV5aN2lLleEm5TwlzJdng635jSVxRJ8iwDUxCFgBaqIbDj+cWdssfAN2jBa6pf8hDQ==' 'sha512-045BbG1+FadSb0XwTEP8tR8QZEkVtavYXb2HsA8DFIVJccz170aZNicoASdyykfaz3rPlhkWVmrft7nRhB9l+Q==' 'sha512-9T+dD5PGlxlmgi9doy/7dC240XnUnMBXfqwRPGFSOI62hv5ok4m8HOEQt3kQWYv7OxO6kbXknHeKCeRLWenCEA==' 'sha512-9+uM4NivHTWsPYM9liroto0T2tIJe9mWlgJ3rKX7EGX8vDF11ViDbXn83WGbulQXRpEBn8GhVm+bD6T+yI++Kg==' 'sha512-FtojSnQVtdjxL+j6c5vNr0NMz5WCcseBvuf2ar2cBggxyO5pLgGtchDVZtvP4OJ9W5pKqUKiimrSYTwWUIlvSA==' 'sha512-Rv7cctzwPU3tPQVDYyiOXt1JZ4Ap/3GjG9UbhlUWOUdj/mDeUZ6H7AHzCd6sXPvyta+JQeiLZAZvbXSIa1J9ug==' 'sha512-aZf/meLRxlpnNk1waw+ZZqKPXOosuZDiDyHa6mls7adlRDN92TQDVkuIGEq74Xad9Vgh/qRO9yGvYDYXZXviDA==' 'sha512-6bShVUY1ZB/2egZ4Tltdn3xExFpVNJ6wnZ6tfetrXn/yt8zbQqYPBGvK7t6qiwb/DEGpMPL9EO5Zkfe8tkOYWw==' 'sha512-oFPgYUxkrqF/0O2EHiIiF9aP5DIQImLW8XW5hGZ9KJNCDJEb1lYEveeuCbLapQkcrFb2Xrd3gk1hZfc2vcAmww==' 'sha512-GB/9C66ZVnAb/pgp2oQSJX0DKV/xZOYG79wem/rytmvOw29h1peCjkvD7tU/YHYZLoJidYfLhdsMY/jN/TPuGA==' 'sha512-3uMX/QNcqXCvpJqXCIFtR6xPhi6lMwBytEJZbIGkmAnsEB9hSMQEYWYTzh3ySS40ukoAXJvp11CnVLn9gIA5og==' 'sha512-GW25CG0+XkPC+PZzWIY1NQ5FsE0EmrGINhyq7C2V9opyNURCoIOYjI/bc/SMVvEsneOng6CdCwIx80uWoeJDSA==' 'sha512-YgTTZu0v6V9mS2gL4ZceYNQ0Apqz1xL3oRRrD2I0ucaFQmm/ROIsgEvpkE18Qc4PLdmAQDxZvQWlqCXwJs494g==' 'sha512-aY3a+W2ontkmkBkbIUVh5j1Cmo2keJCDbBNcZWSfSXKExh6NmxT0CsS3R4NheEx6PP87SYrmgG/N0c/ErfZu6A==' 'sha512-AsMPw3X07ik1WELjrwPGSpeZEwTlKMDqUk65QpUaKK60Db9v7vgQYvPpjsAK8O2V86/It6ShqhIiqX/4Zd/lEQ==' 'sha512-LFsXZIiTH8uk1SyfeApsUP0JXBOFScJDQNIRqvtz18W4cxCOsiX/qbVgTmiFVppLlGjaLrQRrDCrDNd5uaGUgw==' 'sha512-ssEHpdfc19YOUaufOdKhWcI0j9MpGu0d6uidgN9/nSqnaVcLM4Jv6pqMS5Gysbevb1J/8htX52L2uHhENfPOkg==' 'sha512-t2ZGdGmOp3lPKyF6mqTlMlydj/Kd82Blxj7MfhcL40mcjTl9EIjBcz20KrGb5x8ty35QQsTFzCPZCKc0QwZi+w==' 'sha512-B065DeZ6RRG/ehoF7b3KK+vYb4rK/tkD359MhMAN7ZCf6wrz346/BBnOfBWogdalkZ37Yk4lSCF14Iw/WzOggQ==' 'sha512-c1VI0I4L/bzglIuhjSUa0S5hD714mqYcJzmVBonJRlcdLEHWwp3KzKeNcfOABN5VDZUe99BjKmQnniJaC/W9Fw==' 'sha512-Tg2STko/jtSz/JBdwfviSw1KwoZKnzrFwjIj5tIZ/soxoUUvhZhbwtfcyJbBXeAbZLQ+BGQCMKOEeINGEqJAbw==' 'sha512-f1c3kSurSDwEyNjVxCFhU+Q7xPrnM98bcArYYXjimnJednKDIk8D7dhDJvULs3BqjzFFsECm7YngzYwH4HlyXw=='; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://diracgroup.store https://secure.diracgroup.store https://api.diracgroup.store https://fonts.googleapis.com https://fonts.gstatic.com; form-action 'self' https://api.diracgroup.store; frame-src 'none'; child-src 'none'; worker-src 'self' blob:; media-src 'self' data: blob:; manifest-src 'self'; upgrade-insecure-requests">
 <script id="dirac-central-api-router-v1">
 (function(){
   'use strict';
   if(window.__DIRAC_CENTRAL_API_ROUTER_V1__) return;
   window.__DIRAC_CENTRAL_API_ROUTER_V1__ = true;
 
-  function diracApiBaseDomainFromAuthHostV1(){
-    var host = String(window.location.hostname || '').trim().toLowerCase().replace(/\.$/,'');
-    if(window.location.protocol !== 'https:' || window.location.port || host.indexOf('auth.') !== 0) throw new Error('DIRAC_AUTH_ORIGIN_INVALID');
-    var base = host.slice(5);
-    if(base.length < 3 || base.length > 253 || base.indexOf('.') === -1 || !/^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(base)) throw new Error('DIRAC_BASE_DOMAIN_INVALID');
-    return base;
+  var DIRAC_RUNTIME_APP_LABELS = {auth:1,api:1,panel:1,security:1,cs:1,order:1,secure:1,www:1,dashboard:1,parfum:1,pesanan:1,project:1,website:1};
+  function diracRuntimeHost(value){
+    var host = String(value || '').trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'').replace(/^\.+|\.+$/g,'');
+    if(host === 'localhost' || host.indexOf(':') !== -1) return host;
+    if(/^(?:\d{1,3}\.){3}\d{1,3}$/.test(host)){
+      return host.split('.').every(function(part){ return Number(part) >= 0 && Number(part) <= 255; }) ? host : '';
+    }
+    if(host.length < 3 || host.length > 253 || host.indexOf('.') === -1) return '';
+    return host.split('.').every(function(label){ return /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(label); }) ? host : '';
   }
-  var BASE_DOMAIN = diracApiBaseDomainFromAuthHostV1();
-  var API_ORIGIN = 'https://api.' + BASE_DOMAIN;
-  function diracAppOriginV1(role){
-    role = String(role || '').trim().toLowerCase();
-    if(!/^(?:auth|panel|order|security|project|api|cs|shop)$/.test(role)) throw new Error('DIRAC_APP_ROLE_INVALID');
-    return role === 'shop' ? 'https://' + BASE_DOMAIN : 'https://' + role + '.' + BASE_DOMAIN;
+  function diracRuntimeBaseDomain(){
+    var configured = diracRuntimeHost(window.__DIRAC_BASE_DOMAIN__);
+    if(!configured){
+      var meta = document.querySelector('meta[name="dirac-base-domain"]');
+      configured = diracRuntimeHost(meta && meta.getAttribute('content'));
+    }
+    if(configured) return configured;
+    var host = diracRuntimeHost(window.location.hostname);
+    if(!host) throw new Error('DIRAC_BASE_DOMAIN_INVALID');
+    if(host === 'localhost' || host.indexOf(':') !== -1 || /^(?:\d{1,3}\.){3}\d{1,3}$/.test(host)) return host;
+    var labels = host.split('.');
+    if(labels.length > 2 && DIRAC_RUNTIME_APP_LABELS[labels[0]]) labels.shift();
+    return diracRuntimeHost(labels.join('.')) || host;
   }
-  function diracAppUrlV1(role, path){
-    var origin = diracAppOriginV1(role);
-    var safePath = String(path || '/');
-    if(safePath.charAt(0) !== '/') safePath = '/' + safePath;
-    var url = new URL(safePath, origin);
-    if(url.origin !== origin || url.username || url.password) throw new Error('DIRAC_APP_URL_INVALID');
-    return url.href;
+  var BASE_DOMAIN = diracRuntimeBaseDomain();
+  var LOCAL_DOMAIN = BASE_DOMAIN === 'localhost' || BASE_DOMAIN.indexOf(':') !== -1 || /^(?:\d{1,3}\.){3}\d{1,3}$/.test(BASE_DOMAIN);
+  function roleOrigin(role){
+    var clean = String(role || '').trim().toLowerCase();
+    if(LOCAL_DOMAIN) return window.location.origin;
+    if(clean === 'www') return 'https://' + BASE_DOMAIN;
+    if(clean === 'recovery') clean = 'secure';
+    if(!/^[a-z0-9-]{1,63}$/.test(clean)) throw new Error('DIRAC_ROLE_INVALID');
+    return 'https://' + clean + '.' + BASE_DOMAIN;
   }
+  var API_ORIGIN = roleOrigin('api');
   var nativeFetch = window.fetch ? window.fetch.bind(window) : null;
   if(!nativeFetch) return;
 
@@ -109,8 +122,7 @@
     version:'central-api-router-v1',
     baseDomain:BASE_DOMAIN,
     origin:API_ORIGIN,
-    appOrigin:diracAppOriginV1,
-    appUrl:diracAppUrlV1,
+    originFor:roleOrigin,
     url:function(path){
       var u = new URL(String(path || '/'), API_ORIGIN);
       if(u.origin !== API_ORIGIN || !/^\/api(?:\/|$)/i.test(u.pathname || '')){
@@ -8043,8 +8055,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       }
       var msg = e && e.message ? e.message : t('passkeyNeedsServer');
       if(/relying party|rp id|securityerror|not a registrable domain|current domain/i.test(msg)){
-        var rpBase = String(window.DiracApiRuntime && window.DiracApiRuntime.baseDomain || '').trim();
-        msg = 'Passkey gagal karena RP ID/origin tidak cocok. Pastikan A2F_ALLOWED_ORIGINS berisi https://' + rpBase + ' dan WEBAUTHN_RP_ID=' + rpBase + '.';
+        msg = 'Passkey gagal karena RP ID/origin tidak cocok. Pastikan A2F_ALLOWED_ORIGINS berisi https://diracgroup.store dan WEBAUTHN_RP_ID=diracgroup.store.';
       }
       setMessage('error', msg);
       setStep(1);
@@ -8376,8 +8387,11 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     /* Route post-A2F dashboard handoff to the dedicated panel origin.
        Keep the existing login/A2F verification flow unchanged.
        Navigation happens only after the existing server-side checks pass. */
-    if(!window.DiracApiRuntime || typeof window.DiracApiRuntime.appUrl !== 'function') throw new Error('DIRAC_DASHBOARD_ROUTE_CONFIG_INVALID');
-    return window.DiracApiRuntime.appUrl('panel','/dashboard.html');
+    try{
+      var runtime = window.DiracApiRuntime;
+      if(!runtime || typeof runtime.originFor !== 'function') throw new Error('DIRAC_PANEL_ROUTE_UNAVAILABLE');
+      return new URL('/dashboard.html', runtime.originFor('panel')).href;
+    }catch(e){ return new URL('/dashboard.html', window.location.origin).href; }
   }
   function closeDone(){
     var passkeyHandoffReady = state.method !== 'passkey'
@@ -9081,13 +9095,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
   var currentFailedA2FAttempts = 0;
   var csrfTokenMemory = '';
   var recoveryBrowserTransportConfigV287 = null;
-  var recoveryPageNonceMemoryV287 = '';
-  var recoveryPageNonceActionV287 = '';
-  var recoveryPageNonceAtV287 = 0;
-  var recoverySecurityFetch =
-    window.fetch
-      ? window.fetch.bind(window)
-      : null;
+  var recoveryBrowserProofV287 = Object.create(null);
 
   function $(sel, root){ return (root || document).querySelector(sel); }
   function normalizeRecoveryCodeInput(value){
@@ -9099,21 +9107,6 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
   }
   function normalizeRequestId(value){ value = String(value || '').trim(); return /^[A-Za-z0-9_-]{16,120}$/.test(value) ? value : ''; }
   function looksLikeCsrfToken(value){ return /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(String(value || '').trim()); }
-  function looksLikeRecoveryPageNonceV287(value){ var v=String(value || '').trim(); return v.length >= 48 && v.length <= 4096 && /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(v); }
-  function recoveryActionV287(action){ action=String(action || '').trim(); return action === 'customer_security_recovery_codes_generate' || action === 'customer_security_recovery_code_verify'; }
-  function clearRecoveryPageNonceV287(){ recoveryPageNonceMemoryV287=''; recoveryPageNonceActionV287=''; recoveryPageNonceAtV287=0; }
-  function captureRecoveryPageNonceV287(res, action){
-    clearRecoveryPageNonceV287();
-    if(!recoveryActionV287(action)) return '';
-    try{
-      var nonce = res && res.headers && (res.headers.get('X-Dirac-Page-Nonce') || res.headers.get('x-dirac-page-nonce') || res.headers.get('X-Page-Nonce') || res.headers.get('x-page-nonce'));
-      if(looksLikeRecoveryPageNonceV287(nonce)){ recoveryPageNonceMemoryV287=String(nonce).trim(); recoveryPageNonceActionV287=String(action); recoveryPageNonceAtV287=Date.now(); }
-    }catch(_){}
-    return recoveryPageNonceMemoryV287;
-  }
-  function freshRecoveryPageNonceV287(action){
-    return recoveryPageNonceActionV287 === String(action || '').trim() && looksLikeRecoveryPageNonceV287(recoveryPageNonceMemoryV287) && (Date.now() - recoveryPageNonceAtV287) < 60000 ? recoveryPageNonceMemoryV287 : '';
-  }
   function readCookie(name){
     try{
       var prefix = String(name || '') + '=';
@@ -9126,7 +9119,6 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     return '';
   }
   function captureCsrfFromResponse(res){
-    var capturedFromResponse = false;
     try{
       var token = res && res.headers && (
         res.headers.get('X-Dirac-CSRF-Token') ||
@@ -9134,36 +9126,70 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
         res.headers.get('X-CSRF-Token') ||
         res.headers.get('x-csrf-token')
       );
-      if(looksLikeCsrfToken(token)){ csrfTokenMemory = String(token).trim(); capturedFromResponse = true; }
+      if(looksLikeCsrfToken(token)) csrfTokenMemory = String(token).trim();
     }catch(_){}
-    if(!capturedFromResponse) try{
+    try{
       var cookieToken = readCookie('__Host-dirac_csrf_hmac') || readCookie('dirac_csrf_hmac');
       if(looksLikeCsrfToken(cookieToken)) csrfTokenMemory = String(cookieToken).trim();
     }catch(_){}
     return csrfTokenMemory;
   }
+  function isRecoveryTransportActionV287(action){
+    return action === 'customer_security_recovery_codes_generate' || action === 'customer_security_recovery_code_verify';
+  }
+  function clearRecoveryBrowserProofV287(action){
+    action = String(action || '').trim();
+    if(action) delete recoveryBrowserProofV287[action];
+  }
+  function captureRecoveryBrowserProofV287(res, action){
+    action = String(action || '').trim();
+    if(!isRecoveryTransportActionV287(action)) return '';
+    var nonce = '';
+    try{
+      nonce = String(res && res.headers && (
+        res.headers.get('X-Dirac-Page-Nonce') ||
+        res.headers.get('x-dirac-page-nonce') ||
+        res.headers.get('X-Page-Nonce') ||
+        res.headers.get('x-page-nonce') ||
+        ''
+      ) || '').trim();
+    }catch(_){ nonce = ''; }
+    var csrf = String(csrfTokenMemory || '').trim();
+    if(!looksLikeCsrfToken(csrf) || csrf.length < 48 || csrf.length > 4096
+        || !looksLikeCsrfToken(nonce) || nonce.length < 48 || nonce.length > 4096){
+      clearRecoveryBrowserProofV287(action);
+      return '';
+    }
+    recoveryBrowserProofV287[action] = Object.freeze({csrf:csrf,pageNonce:nonce,at:Date.now()});
+    return nonce;
+  }
   async function refreshCsrfToken(action){
     action = /^[a-z0-9_-]{1,80}$/.test(String(action || '')) ? String(action) : 'customer_security_guard_status';
-    if(recoveryActionV287(action)) clearRecoveryPageNonceV287();
     try{
-      if(!recoverySecurityFetch) throw new Error('DIRAC_RECOVERY_FETCH_UNAVAILABLE');
-      var res = await recoverySecurityFetch(API_ENDPOINT + '?action=domain_health&_dirac_page_nonce_for=' + encodeURIComponent(action) + '&_csrf_boot=' + encodeURIComponent(String(Date.now())), {
+      if(typeof window.fetch !== 'function') throw new Error('Transport recovery tidak tersedia.');
+      var res = await fetch(API_ENDPOINT + '?action=domain_health&_dirac_page_nonce_for=' + encodeURIComponent(action) + '&_csrf_boot=' + encodeURIComponent(String(Date.now())), {
         method:'GET',
         mode:'same-origin',
         credentials:'include',
         cache:'no-store',
+        referrer:window.location.origin + '/masuk.html',
+        referrerPolicy:'no-referrer-when-downgrade',
         headers:{'Accept':'application/json'}
       });
+      if(!res || res.ok !== true || Number(res.status || 0) !== 200) throw new Error('Bootstrap keamanan recovery ditolak.');
       captureCsrfFromResponse(res);
-      if(recoveryActionV287(action)) captureRecoveryPageNonceV287(res, action);
+      captureRecoveryBrowserProofV287(res, action);
       var bootstrapData = null;
       try{ bootstrapData = await res.clone().json(); }catch(_){}
-      if(recoveryActionV287(action)){
+      if(isRecoveryTransportActionV287(action)){
         recoveryBrowserTransportConfigV287 = validateRecoveryBrowserTransportConfigV287(bootstrapData && bootstrapData.recovery_browser_transport);
-        if(!freshRecoveryPageNonceV287(action)) throw new Error('DIRAC_RECOVERY_PAGE_NONCE_MISSING');
+        if(!recoveryBrowserTransportConfigV287 || !recoveryBrowserProofV287[action]) throw new Error('Proof transport recovery tidak lengkap.');
       }
     }catch(_){
-      if(recoveryActionV287(action)){ recoveryBrowserTransportConfigV287 = null; clearRecoveryPageNonceV287(); }
+      if(isRecoveryTransportActionV287(action)){
+        recoveryBrowserTransportConfigV287 = null;
+        clearRecoveryBrowserProofV287(action);
+      }
     }
     return csrfTokenMemory || captureCsrfFromResponse(null) || '';
   }
@@ -9176,13 +9202,26 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     }
     return headers;
   }
-  function recoveryAuthHeadersV287(action, context){
+  function recoveryTransportHeadersV287(action, context){
+    action = String(action || '').trim();
+    var proof = recoveryBrowserProofV287[action];
+    clearRecoveryBrowserProofV287(action);
+    var csrf = String(context && context.csrfToken || '').trim();
+    var nonce = String(proof && proof.pageNonce || '').trim();
+    var proofAge = Date.now() - Number(proof && proof.at || 0);
+    if(!isRecoveryTransportActionV287(action)
+        || !context || !context.body || context.body.action !== action
+        || !looksLikeCsrfToken(csrf) || csrf.length < 48 || csrf.length > 4096
+        || !proof || proof.csrf !== csrf
+        || !Number.isFinite(proofAge) || proofAge < 0 || proofAge >= DIRAC_RECOVERY_BROWSER_TRANSPORT_TTL_MS_V287
+        || !looksLikeCsrfToken(nonce) || nonce.length < 48 || nonce.length > 4096){
+      throw new Error('Proof keamanan recovery tidak valid atau sudah kedaluwarsa.');
+    }
     var headers = authHeaders();
-    var nonce = String(context && context.pageNonce || '').trim();
-    if(!looksLikeCsrfToken(csrfTokenMemory) || !nonce) throw new Error('Bukti keamanan recovery belum lengkap. Muat ulang halaman lalu coba kembali.');
-    headers['X-CSRF-Token'] = csrfTokenMemory;
-    headers['X-Dirac-CSRF-Token'] = csrfTokenMemory;
+    headers['X-CSRF-Token'] = csrf;
+    headers['X-Dirac-CSRF-Token'] = csrf;
     headers['X-Dirac-Page-Nonce'] = nonce;
+    context.csrfToken = '';
     return headers;
   }
   function b64UrlToArrayBuffer(value){
@@ -9199,8 +9238,8 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     for(var i=0;i<bytes.length;i++) binary += String.fromCharCode(bytes[i]);
     return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
   }
-  var DIRAC_RECOVERY_BROWSER_TRANSPORT_VERSION_V287 = 'dirac-recovery-browser-transport-v288';
-  var DIRAC_RECOVERY_BROWSER_RESPONSE_VERSION_V287 = 'dirac-recovery-browser-response-v288';
+  var DIRAC_RECOVERY_BROWSER_TRANSPORT_VERSION_V287 = 'dirac-recovery-browser-transport-v287';
+  var DIRAC_RECOVERY_BROWSER_RESPONSE_VERSION_V287 = 'dirac-recovery-browser-response-v287';
   var DIRAC_RECOVERY_BROWSER_TRANSPORT_SUITE_V287 = 'ECDH-P256+HKDF-SHA256+AES-256-GCM';
   var DIRAC_RECOVERY_BROWSER_TRANSPORT_TTL_MS_V287 = 60000;
 
@@ -9263,7 +9302,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
 
   function recoveryBrowserHkdfInfoV287(kind, requestId, keyId, bindingDigest){
     return new TextEncoder().encode([
-      'dirac/recovery-browser/v288/' + String(kind || ''),
+      'dirac/recovery-browser/v287/' + String(kind || ''),
       String(requestId || ''),
       String(keyId || ''),
       String(bindingDigest || '')
@@ -9281,11 +9320,10 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     var csrfToken = String(csrfTokenMemory || '').trim();
     if(!looksLikeCsrfToken(csrfToken)) throw new Error('Token keamanan recovery belum tersedia. Muat ulang halaman lalu coba kembali.');
     var origin = String(window.location.origin || '');
-    var authHost = String(window.location.hostname || '').trim().toLowerCase().replace(/\.$/,'');
-    var authBase = authHost.indexOf('auth.') === 0 ? authHost.slice(5) : '';
-    if(window.location.protocol !== 'https:' || window.location.port || !authBase || authBase.indexOf('.') === -1 || origin !== ('https://auth.' + authBase)) throw new Error('Origin recovery tidak valid.');
-    var pageNonce = freshRecoveryPageNonceV287(action);
-    if(!pageNonce) throw new Error('Bukti nonce recovery belum tersedia. Muat ulang halaman lalu coba kembali.');
+    var expectedOrigin = window.DiracApiRuntime && typeof window.DiracApiRuntime.originFor === 'function'
+      ? String(window.DiracApiRuntime.originFor('auth') || '')
+      : '';
+    if(!expectedOrigin || origin !== expectedOrigin) throw new Error('Origin recovery tidak valid.');
     var publicBytes = new Uint8Array(b64UrlToArrayBuffer(config.public_key_b64url));
     if(publicBytes.length !== 65 || publicBytes[0] !== 4) throw new Error('Kunci transport recovery tidak valid.');
     var serverPublic = await crypto.subtle.importKey('raw', publicBytes, {name:'ECDH',namedCurve:'P-256'}, false, []);
@@ -9303,10 +9341,10 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     var sentAtMs = Date.now();
     var expiresAtMs = sentAtMs + DIRAC_RECOVERY_BROWSER_TRANSPORT_TTL_MS_V287;
     var bindingDigest = await recoveryBrowserSha256B64uV287([
-      'dirac/recovery-browser/binding/v288',
+      'dirac/recovery-browser/binding/v287',
       action,
       origin,
-      pageNonce,
+      csrfToken,
       requestId,
       String(sentAtMs),
       String(expiresAtMs),
@@ -9357,7 +9395,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       salt.fill(0);
       nonce.fill(0);
     }
-    return {body:outer,responseKey:responseKey,requestId:requestId,bindingDigest:bindingDigest,pageNonce:pageNonce};
+    return {body:outer,responseKey:responseKey,requestId:requestId,bindingDigest:bindingDigest,csrfToken:csrfToken};
   }
 
   async function openRecoveryResponseV287(response, data, context){
@@ -9787,7 +9825,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       );
     }
 
-    if(typeof recoverySecurityFetch !== 'function'){
+    if(typeof window.fetch !== 'function'){
       throw new Error(
         'DIRAC_RECOVERY_A2F_FETCH_UNAVAILABLE'
       );
@@ -9807,7 +9845,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       encodeURIComponent(bodyHash);
 
     var bootstrapResponse =
-      await recoverySecurityFetch(bootstrapUrl, {
+      await fetch(bootstrapUrl, {
         method:'GET',
         mode:'same-origin',
         credentials:'include',
@@ -9952,7 +9990,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     headers.set('Idempotency-Key', idempotencyKey);
     headers.set('X-Idempotency-Key', idempotencyKey);
 
-    var res = await recoverySecurityFetch(
+    var res = await fetch(
       API_ENDPOINT +
       '?action=' +
       encodeURIComponent(action),
@@ -10107,13 +10145,14 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     try{
       await refreshCsrfToken('customer_security_recovery_codes_generate');
       var sealedRequestV287 = await sealRecoveryRequestV287('customer_security_recovery_codes_generate', {account_password:String(accountPassword || ''),current_password:String(accountPassword || '')});
-      if(!recoverySecurityFetch) throw new Error('Transport recovery belum siap. Muat ulang halaman lalu coba kembali.');
-      var res = await recoverySecurityFetch(API_ENDPOINT + '?action=customer_security_recovery_codes_generate', {
+      var res = await fetch(API_ENDPOINT + '?action=customer_security_recovery_codes_generate', {
         method:'POST',
         mode:'same-origin',
         credentials:'include',
-        cache:'no-store', referrerPolicy:'no-referrer-when-downgrade',
-        headers:recoveryAuthHeadersV287('customer_security_recovery_codes_generate', sealedRequestV287),
+        cache:'no-store',
+        referrer:window.location.origin + '/masuk.html',
+        referrerPolicy:'no-referrer-when-downgrade',
+        headers:recoveryTransportHeadersV287('customer_security_recovery_codes_generate', sealedRequestV287),
         body:JSON.stringify(sealedRequestV287.body)
       });
       captureCsrfFromResponse(res);
@@ -10148,15 +10187,14 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     try{
       await refreshCsrfToken('customer_security_recovery_code_verify');
       var sealedVerifyV287 = await sealRecoveryRequestV287('customer_security_recovery_code_verify', {request_id:String(requestId || ''),recovery_code:String(code || '')});
-      if(!recoverySecurityFetch) throw new Error('Transport recovery belum siap. Muat ulang halaman lalu coba kembali.');
-      var res = await recoverySecurityFetch(API_ENDPOINT + '?action=customer_security_recovery_code_verify', {
+      var res = await fetch(API_ENDPOINT + '?action=customer_security_recovery_code_verify', {
         method:'POST',
         mode:'same-origin',
         credentials:'include',
         cache:'no-store',
         referrer:window.location.origin + '/masuk.html',
         referrerPolicy:'no-referrer-when-downgrade',
-        headers:recoveryAuthHeadersV287('customer_security_recovery_code_verify', sealedVerifyV287),
+        headers:recoveryTransportHeadersV287('customer_security_recovery_code_verify', sealedVerifyV287),
         body:JSON.stringify(sealedVerifyV287.body)
       });
       captureCsrfFromResponse(res);
@@ -11812,10 +11850,9 @@ html[data-effective-theme="dark"] #a2fModal[data-dirac-passkey-busy="true"] #a2f
         : 'Passkey belum berhasil dibuat. Tekan Buat passkey sekarang, lalu selesaikan Face ID, sidik jari, atau PIN perangkat.';
     }
     if(/rp id|relying party|origin|securityerror|domain/i.test(low)){
-      var rpBase = String(window.DiracApiRuntime && window.DiracApiRuntime.baseDomain || '').trim();
       return lang() === 'en'
-        ? 'Passkey failed because RP ID/origin does not match. Set WEBAUTHN_RP_ID=' + rpBase + ' and deploy again.'
-        : 'Passkey gagal karena RP ID/origin tidak cocok. Set WEBAUTHN_RP_ID=' + rpBase + ' lalu deploy ulang.';
+        ? 'Passkey failed because RP ID/origin does not match. Set WEBAUTHN_RP_ID=diracgroup.store and deploy again.'
+        : 'Passkey gagal karena RP ID/origin tidak cocok. Set WEBAUTHN_RP_ID=diracgroup.store lalu deploy ulang.';
     }
     if(/notallowederror|cancel|abort|timeout|dibatalkan/i.test(low)){
       return lang() === 'en'
@@ -12983,7 +13020,42 @@ html[data-effective-theme="dark"] #a2fModal[data-dirac-passkey-busy="true"] #a2f
     return next;
   }
 
+  function isExplicitBodyBoundSecurity(input, init){
+    var action = actionOf(input);
+    if(methodOf(input, init) !== 'POST' || !init || typeof init.body !== 'string') return false;
+    var body;
+    try{ body = JSON.parse(init.body); }catch(_){ return false; }
+    if(!body || typeof body !== 'object' || Array.isArray(body)) return false;
+    var recoveryBound = /^(customer_security_recovery_codes_generate|customer_security_recovery_code_verify)$/.test(action)
+      && body.action === action
+      && body.transport_version === 'dirac-recovery-browser-transport-v287'
+      && /^[A-Za-z0-9_-]{16,120}$/.test(String(body.transport_request_id || ''))
+      && /^[A-Za-z0-9_-]{43}$/.test(String(body.transport_binding_digest || ''))
+      && /^[A-Za-z0-9_-]{24,}$/.test(String(body.transport_ciphertext_b64url || ''));
+    var a2fBound = /^(dirac_mfa_passkey_start|dirac_mfa_passkey_verify)$/.test(action)
+      && /^[A-Za-z0-9_-]{43}$/.test(String(body.idempotency_key || ''));
+    if(!recoveryBound && !a2fBound) return false;
+    var headers = new Headers();
+    try{ if(input && input.headers) new Headers(input.headers).forEach(function(v,k){ headers.set(k,v); }); }catch(_){ }
+    try{ if(init.headers) new Headers(init.headers).forEach(function(v,k){ headers.set(k,v); }); }catch(_){ }
+    var primary = String(headers.get(TOKEN_HEADER) || '').trim();
+    var compat = String(headers.get(TOKEN_HEADER_COMPAT) || '').trim();
+    var pageNonce = String(headers.get(PAGE_NONCE_HEADER) || '').trim();
+    if(!looksLikeCsrfToken(primary) || primary !== compat || !looksLikeCsrfToken(pageNonce)) return false;
+    if(recoveryBound) return true;
+    var ticket = String(headers.get('X-Dirac-A2F-Ticket') || '').trim();
+    var signature = String(headers.get('X-Dirac-A2F-Signature') || '').trim();
+    var timestamp = String(headers.get('X-Dirac-A2F-Timestamp') || '').trim();
+    var nonce = String(headers.get('X-Dirac-A2F-Nonce') || '').trim();
+    var idem = String(headers.get('Idempotency-Key') || '').trim();
+    var idemCompat = String(headers.get('X-Idempotency-Key') || '').trim();
+    return looksLikeCsrfToken(ticket) && /^[A-Za-z0-9_-]{43}$/.test(signature)
+      && ticket.split('.')[1] === signature && /^\d{10}$/.test(timestamp)
+      && /^[A-Za-z0-9_-]{32}$/.test(nonce) && idem === body.idempotency_key && idemCompat === idem;
+  }
+
   window.fetch = function(input, init){
+    if(isExplicitBodyBoundSecurity(input, init)) return nativeFetch(input, init);
     if(!shouldAttachCsrf(input, init)) return nativeFetch(input, init);
     var action = actionOf(input);
     return ensureHealthSecurity(action).then(function(security){
@@ -13337,7 +13409,42 @@ html[data-effective-theme="dark"] #a2fModal[data-dirac-passkey-busy="true"] #a2f
     return next;
   }
 
+  function isExplicitBodyBoundSecurity(input, init){
+    var action = actionOf(input, init);
+    if(methodOf(input, init) !== 'POST' || !init || typeof init.body !== 'string') return false;
+    var body;
+    try{ body = JSON.parse(init.body); }catch(_){ return false; }
+    if(!body || typeof body !== 'object' || Array.isArray(body)) return false;
+    var recoveryBound = /^(customer_security_recovery_codes_generate|customer_security_recovery_code_verify)$/.test(action)
+      && body.action === action
+      && body.transport_version === 'dirac-recovery-browser-transport-v287'
+      && /^[A-Za-z0-9_-]{16,120}$/.test(String(body.transport_request_id || ''))
+      && /^[A-Za-z0-9_-]{43}$/.test(String(body.transport_binding_digest || ''))
+      && /^[A-Za-z0-9_-]{24,}$/.test(String(body.transport_ciphertext_b64url || ''));
+    var a2fBound = /^(dirac_mfa_passkey_start|dirac_mfa_passkey_verify)$/.test(action)
+      && /^[A-Za-z0-9_-]{43}$/.test(String(body.idempotency_key || ''));
+    if(!recoveryBound && !a2fBound) return false;
+    var headers = new Headers();
+    try{ if(input && input.headers) new Headers(input.headers).forEach(function(v,k){ headers.set(k,v); }); }catch(_){ }
+    try{ if(init.headers) new Headers(init.headers).forEach(function(v,k){ headers.set(k,v); }); }catch(_){ }
+    var primary = String(headers.get(TOKEN_HEADER) || '').trim();
+    var compat = String(headers.get(TOKEN_HEADER_COMPAT) || '').trim();
+    var pageNonce = String(headers.get(PAGE_NONCE_HEADER) || '').trim();
+    if(!looksLikeToken(primary) || primary !== compat || !looksLikeToken(pageNonce)) return false;
+    if(recoveryBound) return true;
+    var ticket = String(headers.get('X-Dirac-A2F-Ticket') || '').trim();
+    var signature = String(headers.get('X-Dirac-A2F-Signature') || '').trim();
+    var timestamp = String(headers.get('X-Dirac-A2F-Timestamp') || '').trim();
+    var nonce = String(headers.get('X-Dirac-A2F-Nonce') || '').trim();
+    var idem = String(headers.get('Idempotency-Key') || '').trim();
+    var idemCompat = String(headers.get('X-Idempotency-Key') || '').trim();
+    return looksLikeToken(ticket) && /^[A-Za-z0-9_-]{43}$/.test(signature)
+      && ticket.split('.')[1] === signature && /^\d{10}$/.test(timestamp)
+      && /^[A-Za-z0-9_-]{32}$/.test(nonce) && idem === body.idempotency_key && idemCompat === idem;
+  }
+
   window.fetch = function(input, init){
+    if(isExplicitBodyBoundSecurity(input, init)) return nativeFetch(input, init);
     if(!isApiMutating(input, init)) return nativeFetch(input, init);
     if(isChatRequest(input)){
       return refreshChatSecurity(actionOf(input, init)).then(function(security){
