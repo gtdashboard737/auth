@@ -5459,6 +5459,22 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
           <div class="field-group">
             <label for="forgotNewPassword">Password baru</label>
             <input class="field" id="forgotNewPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" placeholder="Minimal 15 karakter • 2 huruf besar • 2 angka • 2 simbol">
+          <div class="dirac-wave-password-card" id="forgotPasswordPolicyCard" aria-live="polite" aria-atomic="true">
+            <div class="dirac-wave-password-bars" id="forgotPasswordWaveBars" role="img" aria-label="Kekuatan password baru 0 dari 4 aturan terpenuhi">
+              <span class="dirac-wave-password-bar" data-bar-index="0" aria-hidden="true"></span>
+              <span class="dirac-wave-password-bar" data-bar-index="1" aria-hidden="true"></span>
+              <span class="dirac-wave-password-bar" data-bar-index="2" aria-hidden="true"></span>
+              <span class="dirac-wave-password-bar" data-bar-index="3" aria-hidden="true"></span>
+            </div>
+            <div class="dirac-wave-password-strength" id="forgotPasswordStrengthLabel">Belum diisi</div>
+            <ul class="dirac-wave-password-rules" id="forgotPasswordRules">
+              <li class="dirac-wave-password-rule" data-rule="length"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">15 karakter atau lebih</span></li>
+              <li class="dirac-wave-password-rule" data-rule="case"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 huruf besar dan 1 huruf kecil</span></li>
+              <li class="dirac-wave-password-rule" data-rule="number"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 angka atau lebih</span></li>
+              <li class="dirac-wave-password-rule" data-rule="symbol"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 simbol atau lebih</span></li>
+            </ul>
+            <p class="dirac-wave-password-note" id="forgotPasswordPolicyNote">Password umum, mudah ditebak, atau yang memuat email akun tetap ditolak.</p>
+          </div>
           </div>
           <div class="field-group">
             <label for="forgotConfirmPassword">Ulangi password baru</label>
@@ -5471,6 +5487,122 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     </section>
   </div>
 
+<style id="dirac-forgot-password-wave-meter-css">
+#forgotPasswordBox .dirac-wave-password-card{margin-top:14px;padding:14px 14px 12px;border-radius:24px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 16px 34px rgba(0,0,0,.18)}
+#forgotPasswordBox .dirac-wave-password-bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:2px 0 12px}
+#forgotPasswordBox .dirac-wave-password-bar{position:relative;height:12px;border-radius:999px;background:rgba(148,163,184,.20);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,.05)}
+#forgotPasswordBox .dirac-wave-password-bar::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#f59e0b 0%,#fbbf24 50%,#f59e0b 100%);background-size:220% 100%;background-position:140% 0;opacity:0;transform:translateX(-12%);filter:drop-shadow(0 0 10px rgba(251,191,36,.32))}
+#forgotPasswordBox .dirac-wave-password-bar.is-active{background:rgba(245,158,11,.24)}
+#forgotPasswordBox .dirac-wave-password-bar.is-active::before{opacity:1;animation:diracForgotPasswordWave 1.32s linear infinite}
+#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="1"]::before{animation-delay:.12s}
+#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="2"]::before{animation-delay:.24s}
+#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="3"]::before{animation-delay:.36s}
+#forgotPasswordBox .dirac-wave-password-strength{font-size:1.08rem;font-weight:900;letter-spacing:-.02em;color:#e2e8f0;margin-bottom:10px}
+#forgotPasswordBox .dirac-wave-password-card[data-strength-level="weak"] .dirac-wave-password-strength{color:#fca5a5}
+#forgotPasswordBox .dirac-wave-password-card[data-strength-level="fair"] .dirac-wave-password-strength{color:#fbbf24}
+#forgotPasswordBox .dirac-wave-password-card[data-strength-level="good"] .dirac-wave-password-strength{color:#34d399}
+#forgotPasswordBox .dirac-wave-password-card[data-strength-level="strong"] .dirac-wave-password-strength{color:#22c55e}
+#forgotPasswordBox .dirac-wave-password-rules{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+#forgotPasswordBox .dirac-wave-password-rule{display:flex;align-items:center;gap:11px;color:#94a3b8;font-weight:760;line-height:1.5}
+#forgotPasswordBox .dirac-wave-password-check{width:22px;height:22px;flex:0 0 22px;border-radius:8px;border:1px solid rgba(148,163,184,.42);background:rgba(15,23,42,.52);display:inline-flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+#forgotPasswordBox .dirac-wave-password-check::before{content:"";width:10px;height:10px;border-radius:4px;opacity:0;transform:scale(.6);transition:transform .22s ease,opacity .22s ease;background:linear-gradient(180deg,#34d399,#10b981)}
+#forgotPasswordBox .dirac-wave-password-rule.is-met{color:#e2e8f0}
+#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.62);box-shadow:0 0 0 1px rgba(16,185,129,.12),0 8px 18px rgba(16,185,129,.14)}
+#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check::before{opacity:1;transform:scale(1)}
+#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check::after{content:"✓";position:absolute;color:#ecfdf5;font-weight:900;font-size:.82rem;line-height:1}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-card{background:linear-gradient(180deg,#ffffff,#f8fafc);border-color:rgba(15,23,42,.08);box-shadow:0 12px 28px rgba(15,23,42,.08),inset 0 1px 0 rgba(255,255,255,.78)}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-strength{color:#0f172a}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-rule{color:#475569}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-rule.is-met{color:#0f172a}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-check{background:#fff;border-color:rgba(148,163,184,.42)}
+#forgotPasswordBox .dirac-wave-password-note{margin:10px 2px 0;color:#94a3b8;font-size:.82rem;line-height:1.55;font-weight:680}
+html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-note{color:#64748b}
+@keyframes diracForgotPasswordWave{0%{background-position:140% 0;transform:translateX(-10%)}50%{background-position:60% 0;transform:translateX(2%)}100%{background-position:-40% 0;transform:translateX(10%)}}
+@media(prefers-reduced-motion:reduce){#forgotPasswordBox .dirac-wave-password-bar.is-active::before{animation:none!important;background-position:50% 0!important}#forgotPasswordBox .dirac-wave-password-check::before{transition:none!important}}
+html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-active::before{animation:none!important;background-position:50% 0!important}
+</style>
+
+<script id="dirac-forgot-password-wave-meter-js">
+(function(){
+  'use strict';
+  function $(selector,root){ return (root||document).querySelector(selector); }
+  function $all(selector,root){ return Array.prototype.slice.call((root||document).querySelectorAll(selector)); }
+  function ready(fn){ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fn,{once:true}); else fn(); }
+  function currentLang(){ var code=String(document.documentElement.getAttribute('lang')||'id').toLowerCase(); return /^(id|en|zh|ar|ja|ko|es|fr)/.test(code)?code.split('-')[0]:'en'; }
+  var COPY={
+    id:{empty:'Belum diisi',weak:'Lemah',fair:'Cukup',good:'Baik',strong:'Sangat kuat',aria:'Kekuatan password baru {score} dari 4 aturan terpenuhi',length:'15 karakter atau lebih',case:'2 huruf besar dan 1 huruf kecil',number:'2 angka atau lebih',symbol:'2 simbol atau lebih',note:'Password umum, mudah ditebak, atau yang memuat email akun tetap ditolak.'},
+    en:{empty:'Not entered yet',weak:'Weak',fair:'Fair',good:'Good',strong:'Strong',aria:'New password strength {score} of 4 requirements met',length:'15 characters or more',case:'2 uppercase and 1 lowercase letter',number:'2 numbers or more',symbol:'2 symbols or more',note:'Common passwords and passwords containing the account email are still rejected.'},
+    zh:{empty:'尚未输入',weak:'弱',fair:'一般',good:'良好',strong:'很强',aria:'新密码强度：已满足 4 条中的 {score} 条',length:'至少 15 个字符',case:'2 个大写字母和 1 个小写字母',number:'至少 2 个数字',symbol:'至少 2 个符号',note:'常见弱密码或包含账户邮箱的密码仍会被拒绝。'},
+    ar:{empty:'لم يتم الإدخال بعد',weak:'ضعيف',fair:'مقبول',good:'جيد',strong:'قوي جدًا',aria:'قوة كلمة المرور الجديدة: تم استيفاء {score} من 4 متطلبات',length:'15 حرفًا أو أكثر',case:'حرفان كبيران وحرف صغير واحد',number:'رقمان أو أكثر',symbol:'رمزان أو أكثر',note:'ستظل كلمات المرور الشائعة أو التي تحتوي على بريد الحساب مرفوضة.'},
+    ja:{empty:'未入力',weak:'弱い',fair:'普通',good:'良い',strong:'とても強い',aria:'新しいパスワードの強度: 4 項目中 {score} 項目を満たしました',length:'15文字以上',case:'大文字2文字と小文字1文字',number:'数字2文字以上',symbol:'記号2文字以上',note:'よくある弱いパスワードやアカウントのメールを含むパスワードは拒否されます。'},
+    ko:{empty:'아직 입력되지 않음',weak:'약함',fair:'보통',good:'좋음',strong:'매우 강함',aria:'새 비밀번호 강도: 4개 규칙 중 {score}개 충족',length:'15자 이상',case:'대문자 2개와 소문자 1개',number:'숫자 2개 이상',symbol:'기호 2개 이상',note:'흔한 비밀번호나 계정 이메일이 포함된 비밀번호는 계속 거부됩니다.'},
+    es:{empty:'Aún no escrito',weak:'Débil',fair:'Aceptable',good:'Buena',strong:'Muy fuerte',aria:'Seguridad de la nueva contraseña: {score} de 4 requisitos cumplidos',length:'15 caracteres o más',case:'2 mayúsculas y 1 minúscula',number:'2 números o más',symbol:'2 símbolos o más',note:'Las contraseñas comunes o que incluyan el correo de la cuenta seguirán siendo rechazadas.'},
+    fr:{empty:'Pas encore saisi',weak:'Faible',fair:'Correct',good:'Bonne',strong:'Très forte',aria:'Force du nouveau mot de passe : {score} règle(s) sur 4 validée(s)',length:'15 caractères ou plus',case:'2 majuscules et 1 minuscule',number:'2 chiffres ou plus',symbol:'2 symboles ou plus',note:'Les mots de passe trop courants ou contenant l’e-mail du compte seront toujours refusés.'}
+  };
+  function dictionary(){ return COPY[currentLang()] || COPY.en; }
+  function ruleState(password){
+    password=String(password||'');
+    return {
+      length: password.length >= 15,
+      case: (password.match(/[A-Z]/g)||[]).length >= 2 && /[a-z]/.test(password),
+      number: (password.match(/[0-9]/g)||[]).length >= 2,
+      symbol: (password.match(/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\|~:]/g)||[]).length >= 2
+    };
+  }
+  function applyLocalizedCopy(card,dict){
+    var map={length:dict.length,case:dict.case,number:dict.number,symbol:dict.symbol};
+    Object.keys(map).forEach(function(key){
+      var copy=$('.dirac-wave-password-rule[data-rule="'+key+'"] .dirac-wave-password-copy',card);
+      if(copy) copy.textContent=map[key];
+    });
+  }
+  function render(){
+    var card=$('#forgotPasswordPolicyCard');
+    var input=$('#forgotNewPassword');
+    if(!card||!input) return;
+    var dict=dictionary();
+    applyLocalizedCopy(card,dict);
+    var status=$('#forgotPasswordStrengthLabel',card);
+    var note=$('#forgotPasswordPolicyNote',card);
+    var bars=$all('.dirac-wave-password-bar',card);
+    var rules=ruleState(input.value||'');
+    var keys=['length','case','number','symbol'];
+    var score=keys.reduce(function(total,key){ return total + (rules[key]?1:0); },0);
+    var level='empty';
+    var label=dict.empty;
+    if(String(input.value||'').length>0){
+      if(score<=1){ level='weak'; label=dict.weak; }
+      else if(score===2){ level='fair'; label=dict.fair; }
+      else if(score===3){ level='good'; label=dict.good; }
+      else { level='strong'; label=dict.strong; }
+    }
+    card.setAttribute('data-strength-level',level);
+    if(status) status.textContent=label;
+    if(note) note.textContent=dict.note||COPY.en.note;
+    var aria=(dict.aria||COPY.en.aria).replace('{score}',String(score));
+    var wave=$('#forgotPasswordWaveBars',card);
+    if(wave) wave.setAttribute('aria-label',aria);
+    keys.forEach(function(key,index){
+      var rule=$('.dirac-wave-password-rule[data-rule="'+key+'"]',card);
+      if(rule) rule.classList.toggle('is-met', !!rules[key]);
+      var bar=bars[index];
+      if(bar) bar.classList.toggle('is-active', index < score);
+    });
+  }
+  ready(function(){
+    var input=$('#forgotNewPassword');
+    var confirm=$('#forgotConfirmPassword');
+    if(input){ ['input','change','focus','blur'].forEach(function(type){ input.addEventListener(type,render); }); }
+    if(confirm){ ['focus','input','change'].forEach(function(type){ confirm.addEventListener(type,render); }); }
+    if(window.MutationObserver){
+      new MutationObserver(function(mutations){
+        for(var i=0;i<mutations.length;i++) if(mutations[i].attributeName==='lang'){ render(); break; }
+      }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+    }
+    render();
+  });
+})();
+</script>
 
   <div class="a2f-modal" id="a2fModal" aria-hidden="true" data-mfa-status-endpoint="/api/2fa/lock" data-mfa-setup-endpoint="/api/2fa/start-step" data-mfa-verify-endpoint="/api/2fa/verify-step">
     <section class="a2f-card" role="dialog" aria-modal="true" aria-labelledby="a2fTitle" aria-describedby="a2fSub" tabindex="-1" data-selected-a2f="passkey" data-a2f-step-index="1">
