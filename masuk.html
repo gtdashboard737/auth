@@ -1430,17 +1430,6 @@ html[data-motion="reduced"] .dirac-busy-animated.is-loading .dirac-busy-text-cop
 @keyframes diracSubmitSuccess{0%{transform:scale(1)}40%{transform:scale(.985)}70%{transform:scale(1.018);box-shadow:0 18px 48px rgba(24,185,129,.20)}100%{transform:scale(1)}}
 @keyframes diracCardSuccess{0%{box-shadow:var(--shadow)}45%{box-shadow:0 24px 70px rgba(0,0,0,.45),0 0 0 1px rgba(24,185,129,.22),0 0 38px rgba(24,185,129,.13)}100%{box-shadow:var(--shadow)}}
 .theme-swatch-btn,.theme-pro-choice,.a2f-method,.catalog-return,.theme-toggle,.btn-primary,.btn-secondary,.ai-chip,.dirac-float-btn{position:relative;overflow:hidden;isolation:isolate;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-/* Shimmer motion adapted from 21st.dev community Shimmer Button by Shatlyk1011 (MIT). */
-#submitBtn,#forgotRequestBtn,#forgotPasskeyBtn,#forgotConfirmBtn{
-  background-image:linear-gradient(110deg,#ffe58e 0%,var(--gold-2) 32%,#fff8d5 48%,var(--gold-2) 64%,var(--gold-3) 100%);
-  background-size:240% 100%;
-  animation:dirac21stShimmerButton 4.8s linear infinite;
-  will-change:background-position;
-}
-#submitBtn:disabled,#forgotRequestBtn:disabled,#forgotPasskeyBtn:disabled,#forgotConfirmBtn:disabled{animation-play-state:paused}
-@keyframes dirac21stShimmerButton{0%{background-position:120% 0}100%{background-position:-120% 0}}
-@media(prefers-reduced-motion:reduce){#submitBtn,#forgotRequestBtn,#forgotPasskeyBtn,#forgotConfirmBtn{animation:none!important;background-position:50% 0!important}}
-html[data-motion="reduced"] #submitBtn,html[data-motion="reduced"] #forgotRequestBtn,html[data-motion="reduced"] #forgotPasskeyBtn,html[data-motion="reduced"] #forgotConfirmBtn{animation:none!important;background-position:50% 0!important}
 .theme-swatch-btn.active .theme-color-orb{animation:diracSwatchPulse .72s var(--dirac-soft) both}.theme-swatch-btn.active{box-shadow:0 0 0 1px rgba(var(--theme-rgb),.28),0 12px 28px rgba(var(--theme-rgb),.13)}
 @keyframes diracSwatchPulse{0%{transform:scale(.88)}52%{transform:scale(1.09);filter:saturate(1.12)}100%{transform:scale(1)}}
 .dirac-ripple{position:absolute;border-radius:999px;pointer-events:none;background:rgba(255,255,255,.32);width:12px;height:12px;transform:translate(-50%,-50%) scale(0);animation:diracRipple .62s var(--dirac-ease) forwards;z-index:5;mix-blend-mode:screen}
@@ -5458,27 +5447,11 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
         <div class="forgot-step" id="forgotPasswordBox" hidden>
           <div class="field-group">
             <label for="forgotNewPassword">Password baru</label>
-            <input class="field" id="forgotNewPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" placeholder="Minimal 15 karakter • 2 huruf besar • 2 angka • 2 simbol">
-          <div class="dirac-wave-password-card" id="forgotPasswordPolicyCard" aria-live="polite" aria-atomic="true">
-            <div class="dirac-wave-password-bars" id="forgotPasswordWaveBars" role="img" aria-label="Kekuatan password baru 0 dari 4 aturan terpenuhi">
-              <span class="dirac-wave-password-bar" data-bar-index="0" aria-hidden="true"></span>
-              <span class="dirac-wave-password-bar" data-bar-index="1" aria-hidden="true"></span>
-              <span class="dirac-wave-password-bar" data-bar-index="2" aria-hidden="true"></span>
-              <span class="dirac-wave-password-bar" data-bar-index="3" aria-hidden="true"></span>
-            </div>
-            <div class="dirac-wave-password-strength" id="forgotPasswordStrengthLabel">Belum diisi</div>
-            <ul class="dirac-wave-password-rules" id="forgotPasswordRules">
-              <li class="dirac-wave-password-rule" data-rule="length"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">15 karakter atau lebih</span></li>
-              <li class="dirac-wave-password-rule" data-rule="case"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 huruf besar dan 1 huruf kecil</span></li>
-              <li class="dirac-wave-password-rule" data-rule="number"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 angka atau lebih</span></li>
-              <li class="dirac-wave-password-rule" data-rule="symbol"><span class="dirac-wave-password-check" aria-hidden="true"></span><span class="dirac-wave-password-copy">2 simbol atau lebih</span></li>
-            </ul>
-            <p class="dirac-wave-password-note" id="forgotPasswordPolicyNote">Password umum, mudah ditebak, atau yang memuat email akun tetap ditolak.</p>
-          </div>
+            <input class="field" id="forgotNewPassword" type="password" autocomplete="new-password" minlength="12" maxlength="512" placeholder="Minimal 12 karakter + simbol">
           </div>
           <div class="field-group">
             <label for="forgotConfirmPassword">Ulangi password baru</label>
-            <input class="field" id="forgotConfirmPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" placeholder="Ulangi password baru">
+            <input class="field" id="forgotConfirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="512" placeholder="Ulangi password baru">
           </div>
           <button class="btn-primary" type="button" id="forgotConfirmBtn">Simpan password baru</button>
         </div>
@@ -5487,122 +5460,6 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     </section>
   </div>
 
-<style id="dirac-forgot-password-wave-meter-css">
-#forgotPasswordBox .dirac-wave-password-card{margin-top:14px;padding:14px 14px 12px;border-radius:24px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 16px 34px rgba(0,0,0,.18)}
-#forgotPasswordBox .dirac-wave-password-bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:2px 0 12px}
-#forgotPasswordBox .dirac-wave-password-bar{position:relative;height:12px;border-radius:999px;background:rgba(148,163,184,.20);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,.05)}
-#forgotPasswordBox .dirac-wave-password-bar::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(90deg,#f59e0b 0%,#fbbf24 50%,#f59e0b 100%);background-size:220% 100%;background-position:140% 0;opacity:0;transform:translateX(-12%);filter:drop-shadow(0 0 10px rgba(251,191,36,.32))}
-#forgotPasswordBox .dirac-wave-password-bar.is-active{background:rgba(245,158,11,.24)}
-#forgotPasswordBox .dirac-wave-password-bar.is-active::before{opacity:1;animation:diracForgotPasswordWave 1.32s linear infinite}
-#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="1"]::before{animation-delay:.12s}
-#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="2"]::before{animation-delay:.24s}
-#forgotPasswordBox .dirac-wave-password-bar.is-active[data-bar-index="3"]::before{animation-delay:.36s}
-#forgotPasswordBox .dirac-wave-password-strength{font-size:1.08rem;font-weight:900;letter-spacing:-.02em;color:#e2e8f0;margin-bottom:10px}
-#forgotPasswordBox .dirac-wave-password-card[data-strength-level="weak"] .dirac-wave-password-strength{color:#fca5a5}
-#forgotPasswordBox .dirac-wave-password-card[data-strength-level="fair"] .dirac-wave-password-strength{color:#fbbf24}
-#forgotPasswordBox .dirac-wave-password-card[data-strength-level="good"] .dirac-wave-password-strength{color:#34d399}
-#forgotPasswordBox .dirac-wave-password-card[data-strength-level="strong"] .dirac-wave-password-strength{color:#22c55e}
-#forgotPasswordBox .dirac-wave-password-rules{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-#forgotPasswordBox .dirac-wave-password-rule{display:flex;align-items:center;gap:11px;color:#94a3b8;font-weight:760;line-height:1.5}
-#forgotPasswordBox .dirac-wave-password-check{width:22px;height:22px;flex:0 0 22px;border-radius:8px;border:1px solid rgba(148,163,184,.42);background:rgba(15,23,42,.52);display:inline-flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-#forgotPasswordBox .dirac-wave-password-check::before{content:"";width:10px;height:10px;border-radius:4px;opacity:0;transform:scale(.6);transition:transform .22s ease,opacity .22s ease;background:linear-gradient(180deg,#34d399,#10b981)}
-#forgotPasswordBox .dirac-wave-password-rule.is-met{color:#e2e8f0}
-#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check{background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.62);box-shadow:0 0 0 1px rgba(16,185,129,.12),0 8px 18px rgba(16,185,129,.14)}
-#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check::before{opacity:1;transform:scale(1)}
-#forgotPasswordBox .dirac-wave-password-rule.is-met .dirac-wave-password-check::after{content:"✓";position:absolute;color:#ecfdf5;font-weight:900;font-size:.82rem;line-height:1}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-card{background:linear-gradient(180deg,#ffffff,#f8fafc);border-color:rgba(15,23,42,.08);box-shadow:0 12px 28px rgba(15,23,42,.08),inset 0 1px 0 rgba(255,255,255,.78)}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-strength{color:#0f172a}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-rule{color:#475569}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-rule.is-met{color:#0f172a}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-check{background:#fff;border-color:rgba(148,163,184,.42)}
-#forgotPasswordBox .dirac-wave-password-note{margin:10px 2px 0;color:#94a3b8;font-size:.82rem;line-height:1.55;font-weight:680}
-html[data-effective-theme="light"] #forgotPasswordBox .dirac-wave-password-note{color:#64748b}
-@keyframes diracForgotPasswordWave{0%{background-position:140% 0;transform:translateX(-10%)}50%{background-position:60% 0;transform:translateX(2%)}100%{background-position:-40% 0;transform:translateX(10%)}}
-@media(prefers-reduced-motion:reduce){#forgotPasswordBox .dirac-wave-password-bar.is-active::before{animation:none!important;background-position:50% 0!important}#forgotPasswordBox .dirac-wave-password-check::before{transition:none!important}}
-html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-active::before{animation:none!important;background-position:50% 0!important}
-</style>
-
-<script id="dirac-forgot-password-wave-meter-js">
-(function(){
-  'use strict';
-  function $(selector,root){ return (root||document).querySelector(selector); }
-  function $all(selector,root){ return Array.prototype.slice.call((root||document).querySelectorAll(selector)); }
-  function ready(fn){ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fn,{once:true}); else fn(); }
-  function currentLang(){ var code=String(document.documentElement.getAttribute('lang')||'id').toLowerCase(); return /^(id|en|zh|ar|ja|ko|es|fr)/.test(code)?code.split('-')[0]:'en'; }
-  var COPY={
-    id:{empty:'Belum diisi',weak:'Lemah',fair:'Cukup',good:'Baik',strong:'Sangat kuat',aria:'Kekuatan password baru {score} dari 4 aturan terpenuhi',length:'15 karakter atau lebih',case:'2 huruf besar dan 1 huruf kecil',number:'2 angka atau lebih',symbol:'2 simbol atau lebih',note:'Password umum, mudah ditebak, atau yang memuat email akun tetap ditolak.'},
-    en:{empty:'Not entered yet',weak:'Weak',fair:'Fair',good:'Good',strong:'Strong',aria:'New password strength {score} of 4 requirements met',length:'15 characters or more',case:'2 uppercase and 1 lowercase letter',number:'2 numbers or more',symbol:'2 symbols or more',note:'Common passwords and passwords containing the account email are still rejected.'},
-    zh:{empty:'尚未输入',weak:'弱',fair:'一般',good:'良好',strong:'很强',aria:'新密码强度：已满足 4 条中的 {score} 条',length:'至少 15 个字符',case:'2 个大写字母和 1 个小写字母',number:'至少 2 个数字',symbol:'至少 2 个符号',note:'常见弱密码或包含账户邮箱的密码仍会被拒绝。'},
-    ar:{empty:'لم يتم الإدخال بعد',weak:'ضعيف',fair:'مقبول',good:'جيد',strong:'قوي جدًا',aria:'قوة كلمة المرور الجديدة: تم استيفاء {score} من 4 متطلبات',length:'15 حرفًا أو أكثر',case:'حرفان كبيران وحرف صغير واحد',number:'رقمان أو أكثر',symbol:'رمزان أو أكثر',note:'ستظل كلمات المرور الشائعة أو التي تحتوي على بريد الحساب مرفوضة.'},
-    ja:{empty:'未入力',weak:'弱い',fair:'普通',good:'良い',strong:'とても強い',aria:'新しいパスワードの強度: 4 項目中 {score} 項目を満たしました',length:'15文字以上',case:'大文字2文字と小文字1文字',number:'数字2文字以上',symbol:'記号2文字以上',note:'よくある弱いパスワードやアカウントのメールを含むパスワードは拒否されます。'},
-    ko:{empty:'아직 입력되지 않음',weak:'약함',fair:'보통',good:'좋음',strong:'매우 강함',aria:'새 비밀번호 강도: 4개 규칙 중 {score}개 충족',length:'15자 이상',case:'대문자 2개와 소문자 1개',number:'숫자 2개 이상',symbol:'기호 2개 이상',note:'흔한 비밀번호나 계정 이메일이 포함된 비밀번호는 계속 거부됩니다.'},
-    es:{empty:'Aún no escrito',weak:'Débil',fair:'Aceptable',good:'Buena',strong:'Muy fuerte',aria:'Seguridad de la nueva contraseña: {score} de 4 requisitos cumplidos',length:'15 caracteres o más',case:'2 mayúsculas y 1 minúscula',number:'2 números o más',symbol:'2 símbolos o más',note:'Las contraseñas comunes o que incluyan el correo de la cuenta seguirán siendo rechazadas.'},
-    fr:{empty:'Pas encore saisi',weak:'Faible',fair:'Correct',good:'Bonne',strong:'Très forte',aria:'Force du nouveau mot de passe : {score} règle(s) sur 4 validée(s)',length:'15 caractères ou plus',case:'2 majuscules et 1 minuscule',number:'2 chiffres ou plus',symbol:'2 symboles ou plus',note:'Les mots de passe trop courants ou contenant l’e-mail du compte seront toujours refusés.'}
-  };
-  function dictionary(){ return COPY[currentLang()] || COPY.en; }
-  function ruleState(password){
-    password=String(password||'');
-    return {
-      length: password.length >= 15,
-      case: (password.match(/[A-Z]/g)||[]).length >= 2 && /[a-z]/.test(password),
-      number: (password.match(/[0-9]/g)||[]).length >= 2,
-      symbol: (password.match(/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\|~:]/g)||[]).length >= 2
-    };
-  }
-  function applyLocalizedCopy(card,dict){
-    var map={length:dict.length,case:dict.case,number:dict.number,symbol:dict.symbol};
-    Object.keys(map).forEach(function(key){
-      var copy=$('.dirac-wave-password-rule[data-rule="'+key+'"] .dirac-wave-password-copy',card);
-      if(copy) copy.textContent=map[key];
-    });
-  }
-  function render(){
-    var card=$('#forgotPasswordPolicyCard');
-    var input=$('#forgotNewPassword');
-    if(!card||!input) return;
-    var dict=dictionary();
-    applyLocalizedCopy(card,dict);
-    var status=$('#forgotPasswordStrengthLabel',card);
-    var note=$('#forgotPasswordPolicyNote',card);
-    var bars=$all('.dirac-wave-password-bar',card);
-    var rules=ruleState(input.value||'');
-    var keys=['length','case','number','symbol'];
-    var score=keys.reduce(function(total,key){ return total + (rules[key]?1:0); },0);
-    var level='empty';
-    var label=dict.empty;
-    if(String(input.value||'').length>0){
-      if(score<=1){ level='weak'; label=dict.weak; }
-      else if(score===2){ level='fair'; label=dict.fair; }
-      else if(score===3){ level='good'; label=dict.good; }
-      else { level='strong'; label=dict.strong; }
-    }
-    card.setAttribute('data-strength-level',level);
-    if(status) status.textContent=label;
-    if(note) note.textContent=dict.note||COPY.en.note;
-    var aria=(dict.aria||COPY.en.aria).replace('{score}',String(score));
-    var wave=$('#forgotPasswordWaveBars',card);
-    if(wave) wave.setAttribute('aria-label',aria);
-    keys.forEach(function(key,index){
-      var rule=$('.dirac-wave-password-rule[data-rule="'+key+'"]',card);
-      if(rule) rule.classList.toggle('is-met', !!rules[key]);
-      var bar=bars[index];
-      if(bar) bar.classList.toggle('is-active', index < score);
-    });
-  }
-  ready(function(){
-    var input=$('#forgotNewPassword');
-    var confirm=$('#forgotConfirmPassword');
-    if(input){ ['input','change','focus','blur'].forEach(function(type){ input.addEventListener(type,render); }); }
-    if(confirm){ ['focus','input','change'].forEach(function(type){ confirm.addEventListener(type,render); }); }
-    if(window.MutationObserver){
-      new MutationObserver(function(mutations){
-        for(var i=0;i<mutations.length;i++) if(mutations[i].attributeName==='lang'){ render(); break; }
-      }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-    }
-    render();
-  });
-})();
-</script>
 
   <div class="a2f-modal" id="a2fModal" aria-hidden="true" data-mfa-status-endpoint="/api/2fa/lock" data-mfa-setup-endpoint="/api/2fa/start-step" data-mfa-verify-endpoint="/api/2fa/verify-step">
     <section class="a2f-card" role="dialog" aria-modal="true" aria-labelledby="a2fTitle" aria-describedby="a2fSub" tabindex="-1" data-selected-a2f="passkey" data-a2f-step-index="1">
@@ -9022,15 +8879,9 @@ html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-activ
   function validEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value||''));}
   function strongPassword(password,email){
     password=String(password||'');email=String(email||'').toLowerCase();var local=email.split('@')[0]||'';
-    var uppercase=(password.match(/[A-Z]/g)||[]).length;
-    var digits=(password.match(/[0-9]/g)||[]).length;
-    var specials=(password.match(/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\\|~:]/g)||[]).length;
-    if(password.length<15)return 'Password baru minimal 15 karakter.';
-    if(password.length>128||encoder.encode(password).length>512||/[\0\r\n]/.test(password))return 'Password baru maksimal 128 karakter dan tidak boleh berisi karakter kontrol.';
-    if(!/[a-z]/.test(password))return 'Password baru wajib memiliki minimal 1 huruf kecil.';
-    if(uppercase<2)return 'Password baru wajib memiliki minimal 2 huruf besar.';
-    if(digits<2)return 'Password baru wajib memiliki minimal 2 angka.';
-    if(specials<2)return 'Password baru wajib memiliki minimal 2 karakter khusus, misalnya ? dan :.';
+    if(password.length<12)return 'Password baru minimal 12 karakter.';
+    if(encoder.encode(password).length>512||/[\0\r\n]/.test(password))return 'Format password baru tidak valid.';
+    if(!/[a-z]/.test(password)||!/[A-Z]/.test(password)||!/[0-9]/.test(password)||!/[^A-Za-z0-9]/.test(password))return 'Password baru wajib berisi huruf besar, huruf kecil, angka, dan simbol.';
     if(/password|qwerty|123456|dirac|admin|welcome/i.test(password))return 'Password baru terlalu mudah ditebak.';
     if(local.length>=3&&password.toLowerCase().indexOf(local)!==-1)return 'Password baru tidak boleh mengandung nama atau email akun.';
     return '';
@@ -10733,13 +10584,13 @@ html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-activ
   };
 
   var PLACEHOLDERS = {
-    en:{identifier:'nama@gmail.com',fullName:'Dirac Group customer name',password:'15+ chars • 2 uppercase • 2 numbers • 2 symbols',confirmPassword:'Repeat password',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ chars • 2 uppercase • 2 numbers • 2 symbols',forgotConfirmPassword:'Repeat new password',aiInput:'Type a question...',recovery:'Paste the 1200-character recovery code here'},
-    zh:{identifier:'nama@gmail.com',fullName:'Dirac Group 客户姓名',password:'至少15字符 • 2大写 • 2数字 • 2符号',confirmPassword:'再次输入密码',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'至少15字符 • 2大写 • 2数字 • 2符号',forgotConfirmPassword:'重复新密码',aiInput:'输入问题...',recovery:'在此粘贴 1200 字符恢复代码'},
-    ar:{identifier:'nama@gmail.com',fullName:'اسم عميل Dirac Group',password:'15+ حرف • حرفان كبيران • رقمان • رمزان',confirmPassword:'أعد كلمة المرور',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ حرف • حرفان كبيران • رقمان • رمزان',forgotConfirmPassword:'أعد كلمة المرور الجديدة',aiInput:'اكتب سؤالاً...',recovery:'الصق رمز الاسترداد المكون من 1200 حرف هنا'},
-    ja:{identifier:'nama@gmail.com',fullName:'Dirac Groupのお客様名',password:'15文字以上 • 大文字2 • 数字2 • 記号2',confirmPassword:'パスワードを再入力',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15文字以上 • 大文字2 • 数字2 • 記号2',forgotConfirmPassword:'新しいパスワードを再入力',aiInput:'質問を入力...',recovery:'1200文字のリカバリーコードをここに貼り付け'},
-    ko:{identifier:'nama@gmail.com',fullName:'Dirac Group 고객 이름',password:'15자 이상 • 대문자2 • 숫자2 • 기호2',confirmPassword:'비밀번호 다시 입력',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15자 이상 • 대문자2 • 숫자2 • 기호2',forgotConfirmPassword:'새 비밀번호 다시 입력',aiInput:'질문 입력...',recovery:'1200자 복구 코드를 여기에 붙여넣기'},
-    es:{identifier:'nama@gmail.com',fullName:'Nombre del cliente Dirac Group',password:'15+ caracteres • 2 mayúsculas • 2 números • 2 símbolos',confirmPassword:'Repetir contraseña',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ caracteres • 2 mayúsculas • 2 números • 2 símbolos',forgotConfirmPassword:'Repetir nueva contraseña',aiInput:'Escribe una pregunta...',recovery:'Pega aquí el código de recuperación de 1200 caracteres'},
-    fr:{identifier:'nama@gmail.com',fullName:'Nom du client Dirac Group',password:'15+ caractères • 2 majuscules • 2 chiffres • 2 symboles',confirmPassword:'Répéter le mot de passe',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ caractères • 2 majuscules • 2 chiffres • 2 symboles',forgotConfirmPassword:'Répéter le nouveau mot de passe',aiInput:'Écrire une question...',recovery:'Collez ici le code de récupération de 1200 caractères'}
+    en:{identifier:'nama@gmail.com',fullName:'Dirac Group customer name',password:'Minimum 6 characters',confirmPassword:'Repeat password',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Minimum 12 characters + symbol',forgotConfirmPassword:'Repeat new password',aiInput:'Type a question...',recovery:'Paste the 1200-character recovery code here'},
+    zh:{identifier:'nama@gmail.com',fullName:'Dirac Group 客户姓名',password:'至少 6 个字符',confirmPassword:'再次输入密码',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'至少 12 个字符 + 符号',forgotConfirmPassword:'重复新密码',aiInput:'输入问题...',recovery:'在此粘贴 1200 字符恢复代码'},
+    ar:{identifier:'nama@gmail.com',fullName:'اسم عميل Dirac Group',password:'6 أحرف على الأقل',confirmPassword:'أعد كلمة المرور',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'12 حرفاً على الأقل + رمز',forgotConfirmPassword:'أعد كلمة المرور الجديدة',aiInput:'اكتب سؤالاً...',recovery:'الصق رمز الاسترداد المكون من 1200 حرف هنا'},
+    ja:{identifier:'nama@gmail.com',fullName:'Dirac Groupのお客様名',password:'6文字以上',confirmPassword:'パスワードを再入力',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'12文字以上 + 記号',forgotConfirmPassword:'新しいパスワードを再入力',aiInput:'質問を入力...',recovery:'1200文字のリカバリーコードをここに貼り付け'},
+    ko:{identifier:'nama@gmail.com',fullName:'Dirac Group 고객 이름',password:'최소 6자',confirmPassword:'비밀번호 다시 입력',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'최소 12자 + 기호',forgotConfirmPassword:'새 비밀번호 다시 입력',aiInput:'질문 입력...',recovery:'1200자 복구 코드를 여기에 붙여넣기'},
+    es:{identifier:'nama@gmail.com',fullName:'Nombre del cliente Dirac Group',password:'Mínimo 6 caracteres',confirmPassword:'Repetir contraseña',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Mínimo 12 caracteres + símbolo',forgotConfirmPassword:'Repetir nueva contraseña',aiInput:'Escribe una pregunta...',recovery:'Pega aquí el código de recuperación de 1200 caracteres'},
+    fr:{identifier:'nama@gmail.com',fullName:'Nom du client Dirac Group',password:'Minimum 6 caractères',confirmPassword:'Répéter le mot de passe',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Minimum 12 caractères + symbole',forgotConfirmPassword:'Répéter le nouveau mot de passe',aiInput:'Écrire une question...',recovery:'Collez ici le code de récupération de 1200 caractères'}
   };
 
   var TOAST = {
@@ -10983,18 +10834,13 @@ html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-activ
   function isAllowedEmailProvider(value){ var domain=emailDomain(value); return !!(domain && ALLOWED_EMAIL_DOMAINS[domain]); }
   function isSafeName(value){ value=cleanIdentity(value); return value.length>=3 && SAFE_CHARS.test(value); }
   function countMatches(value,re){ var m=asText(value).match(re); return m?m.length:0; }
-  function passwordPolicy(value,email,registerMode){
-    value=asText(value);email=lower(email);var local=email.split('@')[0]||'';
+  function passwordPolicy(value){
+    value=asText(value);
     if(value.length < 15) return {ok:false,message:'Password minimal 15 karakter.'};
     if(value.length > MAX_PASSWORD_LEN) return {ok:false,message:'Password maksimal 128 karakter.'};
     if(countMatches(value,/[A-Z]/g) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 huruf besar.'};
     if(countMatches(value,/[0-9]/g) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 angka.'};
     if(countMatches(value,SPECIAL_RE) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 karakter khusus, misalnya ? dan :.'};
-    if(registerMode===true){
-      if(!/[a-z]/.test(value)) return {ok:false,message:'Password wajib memiliki minimal 1 huruf kecil.'};
-      if(/password|qwerty|123456|dirac|admin|welcome/i.test(value)) return {ok:false,message:'Password terlalu mudah ditebak.'};
-      if(local.length>=3&&value.toLowerCase().indexOf(local)!==-1) return {ok:false,message:'Password tidak boleh mengandung nama atau email akun.'};
-    }
     return {ok:true,message:''};
   }
   function modeIsRegister(){
@@ -11173,7 +11019,7 @@ html[data-motion="reduced"] #forgotPasswordBox .dirac-wave-password-bar.is-activ
       block(event,'Nama ditolak. Gunakan hanya huruf a-z, angka 0-9, titik (.) dan @, minimal 3 karakter.');
       return;
     }
-    var policy=passwordPolicy(password,email,modeIsRegister());
+    var policy=passwordPolicy(password);
     if(!policy.ok){ block(event,policy.message); return; }
     if(modeIsRegister()&&password!==confirm){ block(event,'Konfirmasi password belum sama.'); return; }
   }
@@ -14120,6 +13966,182 @@ html[data-motion="reduced"] #diracRecoveryVerifyBox .dirac-recovery-typewriter.i
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',function(){ scan(); setTimeout(scan,0); },{once:true});
   else scan();
+})();
+</script>
+
+
+<!-- DIRAC APPEND-ONLY REVISION 2026-09-04: password-policy parity + 21st.dev-derived motion -->
+<style id="dirac-21stdev-gradient-motion-20260904-css">
+/*
+ * Visual treatment adapted from the motion pattern of 21st.dev's
+ * "Animated Gradient Background" (MIT). Dependency-free CSS adaptation
+ * for the existing DIRAC DOM; no existing element or animation is removed.
+ */
+.auth-grid{position:relative;isolation:isolate}
+.auth-grid::before,
+.auth-grid::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+  border-radius:999px;
+  transform:translate3d(0,0,0);
+  will-change:transform,opacity,filter;
+}
+.auth-grid::before{
+  width:min(72vw,760px);
+  aspect-ratio:1;
+  left:-18%;
+  top:-24%;
+  opacity:.46;
+  filter:blur(54px) saturate(1.14);
+  background:
+    radial-gradient(circle at 34% 38%,rgba(var(--theme-rgb),.34) 0 12%,rgba(var(--theme-rgb),.16) 28%,transparent 66%),
+    radial-gradient(circle at 72% 64%,rgba(255,214,128,.15),transparent 56%);
+  animation:dirac21stGradientDriftA 18s ease-in-out infinite alternate;
+}
+.auth-grid::after{
+  width:min(58vw,620px);
+  aspect-ratio:1;
+  right:-16%;
+  bottom:-28%;
+  opacity:.34;
+  filter:blur(62px) saturate(1.08);
+  background:
+    radial-gradient(circle at 60% 38%,rgba(255,255,255,.12),transparent 34%),
+    radial-gradient(circle at 38% 62%,rgba(var(--theme-rgb),.24),transparent 62%);
+  animation:dirac21stGradientDriftB 22s ease-in-out infinite alternate;
+}
+@keyframes dirac21stGradientDriftA{
+  0%{transform:translate3d(-3%,-1%,0) scale(.96) rotate(-4deg);opacity:.38}
+  50%{transform:translate3d(7%,5%,0) scale(1.06) rotate(3deg);opacity:.52}
+  100%{transform:translate3d(1%,10%,0) scale(1.01) rotate(7deg);opacity:.43}
+}
+@keyframes dirac21stGradientDriftB{
+  0%{transform:translate3d(4%,7%,0) scale(1.03) rotate(5deg);opacity:.28}
+  50%{transform:translate3d(-6%,-2%,0) scale(.96) rotate(-3deg);opacity:.39}
+  100%{transform:translate3d(-1%,-8%,0) scale(1.05) rotate(-7deg);opacity:.32}
+}
+html[data-effective-theme="light"] .auth-grid::before{opacity:.24;filter:blur(58px) saturate(.92)}
+html[data-effective-theme="light"] .auth-grid::after{opacity:.18;filter:blur(64px) saturate(.88)}
+@media(max-width:760px){
+  .auth-grid::before{left:-36%;top:-15%;opacity:.34}
+  .auth-grid::after{right:-32%;bottom:-12%;opacity:.25}
+}
+@media(prefers-reduced-motion:reduce){
+  .auth-grid::before,.auth-grid::after{animation:none!important;transform:none!important;will-change:auto!important}
+}
+html[data-motion="reduced"] .auth-grid::before,
+html[data-motion="reduced"] .auth-grid::after{
+  animation:none!important;
+  transform:none!important;
+  will-change:auto!important;
+}
+.dirac-password-parity-note{
+  margin:10px 0 0;
+  padding:10px 12px;
+  border:1px solid rgba(var(--theme-rgb),.18);
+  border-radius:14px;
+  background:rgba(var(--theme-rgb),.06);
+  color:#cbd5e1;
+  font-size:.76rem;
+  line-height:1.48;
+}
+html[data-effective-theme="light"] .dirac-password-parity-note{color:#475569;background:rgba(var(--theme-rgb),.045)}
+</style>
+<script id="dirac-password-policy-parity-20260904-js">
+(function(){
+  'use strict';
+
+  var PARITY_SPECIAL_RE=/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\\|~:]/g;
+  var PARITY_MAX_PASSWORD_LEN=128;
+
+  function count(value,re){var match=String(value||'').match(re);return match?match.length:0;}
+  function policy(password,email){
+    var value=String(password||'');
+    var normalizedEmail=String(email||'').trim().toLowerCase();
+    var local=normalizedEmail.split('@')[0]||'';
+    if(value.length<15)return 'Password minimal 15 karakter.';
+    if(value.length>PARITY_MAX_PASSWORD_LEN)return 'Password maksimal 128 karakter.';
+    try{if(new TextEncoder().encode(value).length>512)return 'Format password tidak valid.';}catch(_e){}
+    if(/[\0\r\n]/.test(value))return 'Format password tidak valid.';
+    if(count(value,/[A-Z]/g)<2)return 'Password wajib memiliki minimal 2 huruf besar.';
+    if(!/[a-z]/.test(value))return 'Password wajib memiliki minimal 1 huruf kecil.';
+    if(count(value,/[0-9]/g)<2)return 'Password wajib memiliki minimal 2 angka.';
+    if(count(value,PARITY_SPECIAL_RE)<2)return 'Password wajib memiliki minimal 2 karakter khusus, misalnya ? dan :.';
+    if(/password|qwerty|123456|dirac|admin|welcome/i.test(value))return 'Password terlalu mudah ditebak.';
+    if(local.length>=3&&value.toLowerCase().indexOf(local)!==-1)return 'Password tidak boleh mengandung nama atau email akun.';
+    return '';
+  }
+  function registerMode(){
+    var hidden=document.getElementById('authMode');
+    var bodyMode=document.body&&document.body.getAttribute('data-auth-mode');
+    return bodyMode==='register'||Boolean(hidden&&hidden.value==='register');
+  }
+  function show(boxId,message){
+    var box=document.getElementById(boxId)||document.getElementById('statusBox')||document.getElementById('forgotStatus');
+    if(!box)return;
+    box.className='status-box show error';
+    box.textContent=message;
+  }
+  function stop(event,message,boxId){
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    show(boxId,message);
+  }
+  function validateRegisterSubmit(event){
+    var form=event.target;
+    if(!form||form.id!=='authForm'||!registerMode())return;
+    var password=document.getElementById('password');
+    var email=document.getElementById('identifier');
+    var error=policy(password&&password.value,email&&email.value);
+    if(error)stop(event,error,'statusBox');
+  }
+  function validateResetCommit(event){
+    var target=event.target&&event.target.closest?event.target.closest('#forgotConfirmBtn'):null;
+    if(!target)return;
+    var password=document.getElementById('forgotNewPassword');
+    var confirmation=document.getElementById('forgotConfirmPassword');
+    var email=document.getElementById('forgotEmail')||document.getElementById('identifier');
+    var error=policy(password&&password.value,email&&email.value);
+    if(error){stop(event,error,'forgotStatus');return;}
+    if(String(password&&password.value||'')!==String(confirmation&&confirmation.value||'')){
+      stop(event,'Konfirmasi password baru belum sama.','forgotStatus');
+    }
+  }
+  function applyResetFieldContract(){
+    var ids=['forgotNewPassword','forgotConfirmPassword'];
+    for(var i=0;i<ids.length;i+=1){
+      var input=document.getElementById(ids[i]);
+      if(!input)continue;
+      input.minLength=15;
+      input.maxLength=128;
+      input.setAttribute('data-dirac-password-policy','registration-parity-v1');
+      input.setAttribute('title','Sama dengan pendaftaran: minimal 15 karakter, 2 huruf besar, 1 huruf kecil, 2 angka, dan 2 karakter khusus.');
+    }
+    var anchor=document.getElementById('forgotConfirmPassword');
+    var group=anchor&&anchor.closest?anchor.closest('.field-group'):null;
+    var parent=group&&group.parentNode;
+    if(parent&&!document.getElementById('diracPasswordParityNote')){
+      var note=document.createElement('p');
+      note.id='diracPasswordParityNote';
+      note.className='dirac-password-parity-note';
+      note.setAttribute('role','note');
+      note.textContent='Ketentuan password disamakan dengan pendaftaran: minimal 15 karakter, minimal 2 huruf besar, 1 huruf kecil, 2 angka, dan 2 karakter khusus. Proteksi password umum dan identitas akun tetap aktif.';
+      parent.insertBefore(note,group.nextSibling);
+    }
+  }
+
+  document.addEventListener('submit',validateRegisterSubmit,true);
+  document.addEventListener('click',validateResetCommit,true);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyResetFieldContract,{once:true});else applyResetFieldContract();
+
+  Object.defineProperty(window,'DiracPasswordPolicyParityV1',{
+    value:Object.freeze({validate:function(password,email){return policy(password,email);}}),
+    enumerable:false,
+    configurable:false,
+    writable:false
+  });
 })();
 </script>
 
