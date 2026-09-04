@@ -1430,6 +1430,17 @@ html[data-motion="reduced"] .dirac-busy-animated.is-loading .dirac-busy-text-cop
 @keyframes diracSubmitSuccess{0%{transform:scale(1)}40%{transform:scale(.985)}70%{transform:scale(1.018);box-shadow:0 18px 48px rgba(24,185,129,.20)}100%{transform:scale(1)}}
 @keyframes diracCardSuccess{0%{box-shadow:var(--shadow)}45%{box-shadow:0 24px 70px rgba(0,0,0,.45),0 0 0 1px rgba(24,185,129,.22),0 0 38px rgba(24,185,129,.13)}100%{box-shadow:var(--shadow)}}
 .theme-swatch-btn,.theme-pro-choice,.a2f-method,.catalog-return,.theme-toggle,.btn-primary,.btn-secondary,.ai-chip,.dirac-float-btn{position:relative;overflow:hidden;isolation:isolate;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+/* Shimmer motion adapted from 21st.dev community Shimmer Button by Shatlyk1011 (MIT). */
+#submitBtn,#forgotRequestBtn,#forgotPasskeyBtn,#forgotConfirmBtn{
+  background-image:linear-gradient(110deg,#ffe58e 0%,var(--gold-2) 32%,#fff8d5 48%,var(--gold-2) 64%,var(--gold-3) 100%);
+  background-size:240% 100%;
+  animation:dirac21stShimmerButton 4.8s linear infinite;
+  will-change:background-position;
+}
+#submitBtn:disabled,#forgotRequestBtn:disabled,#forgotPasskeyBtn:disabled,#forgotConfirmBtn:disabled{animation-play-state:paused}
+@keyframes dirac21stShimmerButton{0%{background-position:120% 0}100%{background-position:-120% 0}}
+@media(prefers-reduced-motion:reduce){#submitBtn,#forgotRequestBtn,#forgotPasskeyBtn,#forgotConfirmBtn{animation:none!important;background-position:50% 0!important}}
+html[data-motion="reduced"] #submitBtn,html[data-motion="reduced"] #forgotRequestBtn,html[data-motion="reduced"] #forgotPasskeyBtn,html[data-motion="reduced"] #forgotConfirmBtn{animation:none!important;background-position:50% 0!important}
 .theme-swatch-btn.active .theme-color-orb{animation:diracSwatchPulse .72s var(--dirac-soft) both}.theme-swatch-btn.active{box-shadow:0 0 0 1px rgba(var(--theme-rgb),.28),0 12px 28px rgba(var(--theme-rgb),.13)}
 @keyframes diracSwatchPulse{0%{transform:scale(.88)}52%{transform:scale(1.09);filter:saturate(1.12)}100%{transform:scale(1)}}
 .dirac-ripple{position:absolute;border-radius:999px;pointer-events:none;background:rgba(255,255,255,.32);width:12px;height:12px;transform:translate(-50%,-50%) scale(0);animation:diracRipple .62s var(--dirac-ease) forwards;z-index:5;mix-blend-mode:screen}
@@ -5447,11 +5458,11 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
         <div class="forgot-step" id="forgotPasswordBox" hidden>
           <div class="field-group">
             <label for="forgotNewPassword">Password baru</label>
-            <input class="field" id="forgotNewPassword" type="password" autocomplete="new-password" minlength="12" maxlength="512" placeholder="Minimal 12 karakter + simbol">
+            <input class="field" id="forgotNewPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" placeholder="Minimal 15 karakter • 2 huruf besar • 2 angka • 2 simbol">
           </div>
           <div class="field-group">
             <label for="forgotConfirmPassword">Ulangi password baru</label>
-            <input class="field" id="forgotConfirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="512" placeholder="Ulangi password baru">
+            <input class="field" id="forgotConfirmPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" placeholder="Ulangi password baru">
           </div>
           <button class="btn-primary" type="button" id="forgotConfirmBtn">Simpan password baru</button>
         </div>
@@ -8879,9 +8890,15 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
   function validEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value||''));}
   function strongPassword(password,email){
     password=String(password||'');email=String(email||'').toLowerCase();var local=email.split('@')[0]||'';
-    if(password.length<12)return 'Password baru minimal 12 karakter.';
-    if(encoder.encode(password).length>512||/[\0\r\n]/.test(password))return 'Format password baru tidak valid.';
-    if(!/[a-z]/.test(password)||!/[A-Z]/.test(password)||!/[0-9]/.test(password)||!/[^A-Za-z0-9]/.test(password))return 'Password baru wajib berisi huruf besar, huruf kecil, angka, dan simbol.';
+    var uppercase=(password.match(/[A-Z]/g)||[]).length;
+    var digits=(password.match(/[0-9]/g)||[]).length;
+    var specials=(password.match(/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\\|~:]/g)||[]).length;
+    if(password.length<15)return 'Password baru minimal 15 karakter.';
+    if(password.length>128||encoder.encode(password).length>512||/[\0\r\n]/.test(password))return 'Password baru maksimal 128 karakter dan tidak boleh berisi karakter kontrol.';
+    if(!/[a-z]/.test(password))return 'Password baru wajib memiliki minimal 1 huruf kecil.';
+    if(uppercase<2)return 'Password baru wajib memiliki minimal 2 huruf besar.';
+    if(digits<2)return 'Password baru wajib memiliki minimal 2 angka.';
+    if(specials<2)return 'Password baru wajib memiliki minimal 2 karakter khusus, misalnya ? dan :.';
     if(/password|qwerty|123456|dirac|admin|welcome/i.test(password))return 'Password baru terlalu mudah ditebak.';
     if(local.length>=3&&password.toLowerCase().indexOf(local)!==-1)return 'Password baru tidak boleh mengandung nama atau email akun.';
     return '';
@@ -10584,13 +10601,13 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
   };
 
   var PLACEHOLDERS = {
-    en:{identifier:'nama@gmail.com',fullName:'Dirac Group customer name',password:'Minimum 6 characters',confirmPassword:'Repeat password',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Minimum 12 characters + symbol',forgotConfirmPassword:'Repeat new password',aiInput:'Type a question...',recovery:'Paste the 1200-character recovery code here'},
-    zh:{identifier:'nama@gmail.com',fullName:'Dirac Group 客户姓名',password:'至少 6 个字符',confirmPassword:'再次输入密码',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'至少 12 个字符 + 符号',forgotConfirmPassword:'重复新密码',aiInput:'输入问题...',recovery:'在此粘贴 1200 字符恢复代码'},
-    ar:{identifier:'nama@gmail.com',fullName:'اسم عميل Dirac Group',password:'6 أحرف على الأقل',confirmPassword:'أعد كلمة المرور',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'12 حرفاً على الأقل + رمز',forgotConfirmPassword:'أعد كلمة المرور الجديدة',aiInput:'اكتب سؤالاً...',recovery:'الصق رمز الاسترداد المكون من 1200 حرف هنا'},
-    ja:{identifier:'nama@gmail.com',fullName:'Dirac Groupのお客様名',password:'6文字以上',confirmPassword:'パスワードを再入力',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'12文字以上 + 記号',forgotConfirmPassword:'新しいパスワードを再入力',aiInput:'質問を入力...',recovery:'1200文字のリカバリーコードをここに貼り付け'},
-    ko:{identifier:'nama@gmail.com',fullName:'Dirac Group 고객 이름',password:'최소 6자',confirmPassword:'비밀번호 다시 입력',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'최소 12자 + 기호',forgotConfirmPassword:'새 비밀번호 다시 입력',aiInput:'질문 입력...',recovery:'1200자 복구 코드를 여기에 붙여넣기'},
-    es:{identifier:'nama@gmail.com',fullName:'Nombre del cliente Dirac Group',password:'Mínimo 6 caracteres',confirmPassword:'Repetir contraseña',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Mínimo 12 caracteres + símbolo',forgotConfirmPassword:'Repetir nueva contraseña',aiInput:'Escribe una pregunta...',recovery:'Pega aquí el código de recuperación de 1200 caracteres'},
-    fr:{identifier:'nama@gmail.com',fullName:'Nom du client Dirac Group',password:'Minimum 6 caractères',confirmPassword:'Répéter le mot de passe',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'Minimum 12 caractères + symbole',forgotConfirmPassword:'Répéter le nouveau mot de passe',aiInput:'Écrire une question...',recovery:'Collez ici le code de récupération de 1200 caractères'}
+    en:{identifier:'nama@gmail.com',fullName:'Dirac Group customer name',password:'15+ chars • 2 uppercase • 2 numbers • 2 symbols',confirmPassword:'Repeat password',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ chars • 2 uppercase • 2 numbers • 2 symbols',forgotConfirmPassword:'Repeat new password',aiInput:'Type a question...',recovery:'Paste the 1200-character recovery code here'},
+    zh:{identifier:'nama@gmail.com',fullName:'Dirac Group 客户姓名',password:'至少15字符 • 2大写 • 2数字 • 2符号',confirmPassword:'再次输入密码',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'至少15字符 • 2大写 • 2数字 • 2符号',forgotConfirmPassword:'重复新密码',aiInput:'输入问题...',recovery:'在此粘贴 1200 字符恢复代码'},
+    ar:{identifier:'nama@gmail.com',fullName:'اسم عميل Dirac Group',password:'15+ حرف • حرفان كبيران • رقمان • رمزان',confirmPassword:'أعد كلمة المرور',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ حرف • حرفان كبيران • رقمان • رمزان',forgotConfirmPassword:'أعد كلمة المرور الجديدة',aiInput:'اكتب سؤالاً...',recovery:'الصق رمز الاسترداد المكون من 1200 حرف هنا'},
+    ja:{identifier:'nama@gmail.com',fullName:'Dirac Groupのお客様名',password:'15文字以上 • 大文字2 • 数字2 • 記号2',confirmPassword:'パスワードを再入力',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15文字以上 • 大文字2 • 数字2 • 記号2',forgotConfirmPassword:'新しいパスワードを再入力',aiInput:'質問を入力...',recovery:'1200文字のリカバリーコードをここに貼り付け'},
+    ko:{identifier:'nama@gmail.com',fullName:'Dirac Group 고객 이름',password:'15자 이상 • 대문자2 • 숫자2 • 기호2',confirmPassword:'비밀번호 다시 입력',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15자 이상 • 대문자2 • 숫자2 • 기호2',forgotConfirmPassword:'새 비밀번호 다시 입력',aiInput:'질문 입력...',recovery:'1200자 복구 코드를 여기에 붙여넣기'},
+    es:{identifier:'nama@gmail.com',fullName:'Nombre del cliente Dirac Group',password:'15+ caracteres • 2 mayúsculas • 2 números • 2 símbolos',confirmPassword:'Repetir contraseña',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ caracteres • 2 mayúsculas • 2 números • 2 símbolos',forgotConfirmPassword:'Repetir nueva contraseña',aiInput:'Escribe una pregunta...',recovery:'Pega aquí el código de recuperación de 1200 caracteres'},
+    fr:{identifier:'nama@gmail.com',fullName:'Nom du client Dirac Group',password:'15+ caractères • 2 majuscules • 2 chiffres • 2 symboles',confirmPassword:'Répéter le mot de passe',forgotEmail:'email@example.com',forgotCode:'12345678',forgotNewPassword:'15+ caractères • 2 majuscules • 2 chiffres • 2 symboles',forgotConfirmPassword:'Répéter le nouveau mot de passe',aiInput:'Écrire une question...',recovery:'Collez ici le code de récupération de 1200 caractères'}
   };
 
   var TOAST = {
@@ -10834,13 +10851,18 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
   function isAllowedEmailProvider(value){ var domain=emailDomain(value); return !!(domain && ALLOWED_EMAIL_DOMAINS[domain]); }
   function isSafeName(value){ value=cleanIdentity(value); return value.length>=3 && SAFE_CHARS.test(value); }
   function countMatches(value,re){ var m=asText(value).match(re); return m?m.length:0; }
-  function passwordPolicy(value){
-    value=asText(value);
+  function passwordPolicy(value,email,registerMode){
+    value=asText(value);email=lower(email);var local=email.split('@')[0]||'';
     if(value.length < 15) return {ok:false,message:'Password minimal 15 karakter.'};
     if(value.length > MAX_PASSWORD_LEN) return {ok:false,message:'Password maksimal 128 karakter.'};
     if(countMatches(value,/[A-Z]/g) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 huruf besar.'};
     if(countMatches(value,/[0-9]/g) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 angka.'};
     if(countMatches(value,SPECIAL_RE) < 2) return {ok:false,message:'Password wajib memiliki minimal 2 karakter khusus, misalnya ? dan :.'};
+    if(registerMode===true){
+      if(!/[a-z]/.test(value)) return {ok:false,message:'Password wajib memiliki minimal 1 huruf kecil.'};
+      if(/password|qwerty|123456|dirac|admin|welcome/i.test(value)) return {ok:false,message:'Password terlalu mudah ditebak.'};
+      if(local.length>=3&&value.toLowerCase().indexOf(local)!==-1) return {ok:false,message:'Password tidak boleh mengandung nama atau email akun.'};
+    }
     return {ok:true,message:''};
   }
   function modeIsRegister(){
@@ -11019,7 +11041,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       block(event,'Nama ditolak. Gunakan hanya huruf a-z, angka 0-9, titik (.) dan @, minimal 3 karakter.');
       return;
     }
-    var policy=passwordPolicy(password);
+    var policy=passwordPolicy(password,email,modeIsRegister());
     if(!policy.ok){ block(event,policy.message); return; }
     if(modeIsRegister()&&password!==confirm){ block(event,'Konfirmasi password belum sama.'); return; }
   }
