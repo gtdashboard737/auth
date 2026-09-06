@@ -9833,7 +9833,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
 <script id="dirac-lost-passkey-recovery-request-verify-js">
 (function(){
   'use strict';
-  var DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH = 1200;
+  var DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH = 100;
   var API_ENDPOINT = '/api/health';
   var UNLOCK_AFTER_FAILED_A2F = 2;
   var currentFailedA2FAttempts = 0;
@@ -10160,7 +10160,21 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       try{ inner = {action:action,password_b64url:arrayBufferToB64Url(passwordBytes.buffer)}; }
       finally{ passwordBytes.fill(0); }
     }else{
-      inner = {action:action,request_id:String(sensitiveBody && sensitiveBody.request_id || ''),recovery_code:String(sensitiveBody && sensitiveBody.recovery_code || '')};
+      var verifyPassword = String(sensitiveBody && sensitiveBody.account_password || '').normalize('NFC');
+      if(verifyPassword.length < 12 || verifyPassword.length > 128 || !/[A-Z]/.test(verifyPassword) || !/[0-9]/.test(verifyPassword) || !/[!@#$%^&*()_+\-=\[\]{};:'",.<>?\/\\|~:]/.test(verifyPassword)) throw new Error('Password minimal 12 karakter dan wajib memiliki minimal 1 huruf besar, 1 angka, dan 1 simbol.');
+      var verifyPasswordBytes = new TextEncoder().encode(verifyPassword);
+      verifyPassword = '';
+      if(verifyPasswordBytes.length > 512){ verifyPasswordBytes.fill(0); throw new Error('Panjang password recovery tidak valid.'); }
+      try{
+        inner = {
+          action:action,
+          password_b64url:arrayBufferToB64Url(verifyPasswordBytes.buffer),
+          request_id:String(sensitiveBody && sensitiveBody.request_id || ''),
+          recovery_code:String(sensitiveBody && sensitiveBody.recovery_code || '')
+        };
+      }finally{
+        verifyPasswordBytes.fill(0);
+      }
     }
     var plaintext = new TextEncoder().encode(JSON.stringify(inner));
     try{
@@ -10516,7 +10530,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     counter.classList.remove('is-ok','is-bad');
     if(code.length === DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH) counter.classList.add('is-ok');
     else if(code.length > 0) counter.classList.add('is-bad');
-    counter.innerHTML = '<span>Kode pemulihan: ' + code.length + '/' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + ' karakter</span><span>' + (code.length === DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH ? 'Siap dikonfirmasi' : 'Masukkan ' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + ' karakter penuh') + '</span>';
+    counter.innerHTML = '<span>Kode email: ' + code.length + '/' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + ' karakter</span><span>' + (code.length === DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH ? 'Siap diverifikasi' : 'Masukkan ' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + ' karakter penuh') + '</span>';
   }
   function handleRecoveryFieldInput(box){
     var fields = readRecoveryFields(box);
@@ -10944,7 +10958,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     if(recoveryRequestBusy) return;
     var passwordInput = $('.dirac-recovery-account-password-input', box);
     var accountPassword = passwordInput ? String(passwordInput.value || '') : '';
-    if(!accountPassword){ showStatus(box, 'Masukkan password akun saat ini. Halaman pemulihan memerlukan password akun, kode email 100 karakter, dan kode website 100 karakter.', false); if(passwordInput) passwordInput.focus(); return; }
+    if(!accountPassword){ showStatus(box, 'Masukkan password akun saat ini. Setelah password terverifikasi, sistem akan mengirim kode keamanan 100 karakter ke email resmi akun.', false); if(passwordInput) passwordInput.focus(); return; }
     var btn = $('.dirac-recovery-request-submit', box);
     var old = btn && btn.textContent;
     var controller = typeof AbortController === 'function' ? new AbortController() : null;
@@ -10980,24 +10994,23 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       var data = await openRecoveryResponseV287(res, rawDataV287, sealedRequestV287);
       if(!res.ok || !(data && data.ok === true)) throw new Error((data && (data.message || data.error || data.code)) || 'Permintaan pemulihan belum dapat diproses.');
       var requestId = pickRequestId(data);
-      var websiteCode = pickWebsiteCode(data);
-      if(!requestId || !websiteCode) throw new Error('RECOVERY_DUAL_DELIVERY_CONTRACT_INVALID');
-      setRecoverySecrets(box, websiteCode);
+      if(!requestId || String(data && data.delivery || '') !== 'email_code_100') throw new Error('RECOVERY_EMAIL100_DELIVERY_CONTRACT_INVALID');
+      setRecoverySecrets(box, '');
       prefillCombinedInput(box, requestId);
       setVerifyStage(box, true);
       ensureRecoveryRequestVisible(box);
-      showStatus(box, 'Kode website 100 karakter dan nomor referensi sudah tersedia. Salin kode website sebelum membuka tautan email; kode email 100 karakter berada di email, sedangkan kode pemulihan 1200 karakter diperoleh setelah verifikasi pada halaman aman.', true);
+      showStatus(box, 'Password benar. Kode keamanan 100 karakter sudah dikirim ke email resmi akun. Masukkan kode tersebut di bawah, lalu konfirmasi untuk membuka tahap penggantian Passkey.', true);
     }catch(e){
       ensureRecoveryRequestVisible(box);
       setVerifyStage(box, true);
       if(e && e.name === 'AbortError'){
         showStatus(box, 'Permintaan masih belum menyelesaikan respons aman dalam batas waktu. Panel tetap terbuka dan tidak ada pengiriman ulang otomatis.', false);
-      }else if((e && e.message === 'RECOVERY_DUAL_DELIVERY_CONTRACT_INVALID') || (data && data.code === 'RECOVERY_DUAL_DELIVERY_CONTRACT_INVALID')){
-        showStatus(box, 'Respons pemulihan belum memuat nomor referensi dan kode website 100 karakter yang lengkap. Proses belum selesai meskipun email telah masuk. Jangan gunakan tautan tersebut; hubungi admin melalui support@diracgroup.store atau WhatsApp 087892523968.', false);
+      }else if((e && e.message === 'RECOVERY_EMAIL100_DELIVERY_CONTRACT_INVALID') || (data && data.code === 'RECOVERY_EMAIL100_DELIVERY_CONTRACT_INVALID')){
+        showStatus(box, 'Server belum mengonfirmasi pengiriman kode email 100 karakter. Tahap penggantian Passkey tetap terkunci dan permintaan tidak dianggap selesai.', false);
       }else if(data && data.ok === false){
         showStatus(box, recoveryFriendlyMessage(data.message, data, responseStatus), false);
       }else if(responseStatus === 200){
-        showStatus(box, 'Respons aman belum dapat divalidasi sehingga kode website belum ditampilkan. Panel tetap terbuka dan permintaan tidak dikirim ulang otomatis. Hubungi support@diracgroup.store atau WhatsApp 087892523968.', false);
+        showStatus(box, 'Server membalas HTTP 200, tetapi respons terenkripsi belum membuktikan pengiriman kode email 100 karakter. Panel tetap terbuka dan tahap Passkey tetap terkunci.', false);
       }else{
         showStatus(box, recoveryFriendlyMessage(e && e.message, null, responseStatus), false);
       }
@@ -11015,7 +11028,10 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     var requestId = parsed.requestId;
     var code = parsed.code;
     if(!requestId){ showStatus(box, 'Nomor referensi belum tersedia. Kirim akses pemulihan terlebih dahulu, atau masukkan nomor referensi yang diterima.', false); if(requestInput) requestInput.focus(); return; }
-    if(!code || code.length !== DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH){ showStatus(box, 'Kode pemulihan harus tepat ' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + ' karakter. Saat ini: ' + (code ? code.length : 0) + '/' + DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH + '. Salin kode pemulihan secara utuh dari halaman pemulihan aman.', false); if(combinedInput) combinedInput.focus(); return; }
+    if(!code || code.length !== DIRAC_LOST_PASSKEY_RECOVERY_CODE_LENGTH || !/^[A-Za-z0-9_-]{100}$/.test(code)){ showStatus(box, 'Kode email harus tepat 100 karakter. Saat ini: ' + (code ? code.length : 0) + '/100.', false); if(combinedInput) combinedInput.focus(); return; }
+    var passwordInput = $('.dirac-recovery-account-password-input', box);
+    var accountPassword = passwordInput ? String(passwordInput.value || '') : '';
+    if(!accountPassword){ showStatus(box, 'Password akun wajib tetap diisi. Password dan kode email 100 karakter harus sama-sama lolos verifikasi sebelum Passkey dapat diganti.', false); if(passwordInput) passwordInput.focus(); return; }
     var btn = $('.dirac-recovery-verify-submit', box);
     var old = btn && btn.textContent;
     var controller = typeof AbortController === 'function' ? new AbortController() : null;
@@ -11028,7 +11044,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     if(controller){ timeoutId = setTimeout(function(){ try{ controller.abort(); }catch(_){} }, RECOVERY_EMAIL_REQUEST_TIMEOUT_MS); }
     try{
       await refreshCsrfToken('customer_security_recovery_code_verify', controller ? controller.signal : undefined);
-      var sealedVerifyV287 = await sealRecoveryRequestV287('customer_security_recovery_code_verify', {request_id:String(requestId || ''),recovery_code:String(code || '')});
+      var sealedVerifyV287 = await sealRecoveryRequestV287('customer_security_recovery_code_verify', {request_id:String(requestId || ''),recovery_code:String(code || ''),account_password:String(accountPassword || '')});
       var res = await fetch(API_ENDPOINT + '?action=customer_security_recovery_code_verify', {
         method:'POST',
         mode:'same-origin',
@@ -11049,7 +11065,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
       window.__diracLastRecoveryVerifyStatus = res.status || 0;
       var recoverySessionToken = pickRecoverySessionToken(data);
       if(!res.ok || !(data && data.ok === true)){
-        throw new Error((data && (data.message || data.error || data.code)) || 'Kode pemulihan belum dapat dikonfirmasi.');
+        throw new Error((data && (data.message || data.error || data.code)) || 'Kode email belum dapat dikonfirmasi.');
       }
       if(!recoverySessionToken){
         throw new Error('Verifikasi berhasil, tetapi sesi lanjutan belum tersedia. Muat ulang halaman dan ulangi proses pemulihan.');
@@ -11061,7 +11077,7 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
         purpose: data.purpose || 'register_new_passkey'
       };
       showRecoveryPasskeyStage(box);
-      showStatus(box, 'Pemulihan berhasil dikonfirmasi. Silakan daftarkan Passkey baru melalui tombol di bawah.', true);
+      showStatus(box, 'Password dan kode email 100 karakter berhasil diverifikasi. Silakan daftarkan Passkey baru melalui tombol di bawah.', true);
       if(combinedInput) combinedInput.value = '';
     }catch(e){
       if(e && e.name === 'AbortError'){
@@ -11126,41 +11142,31 @@ html[data-effective-theme="light"] #a2fModal .dirac-authenticator-secret-safe{co
     box.className = 'dirac-recovery-verify-box';
     box.setAttribute('aria-hidden','true');
     box.innerHTML =
-      '<div class="dirac-recovery-head"><div class="dirac-recovery-icon">LINK</div><div><h3>Pemulihan akses Passkey</h3><span class="dirac-recovery-kicker">Proses aman melalui email resmi</span></div></div>' +
+      '<div class="dirac-recovery-head"><div class="dirac-recovery-icon">MAIL</div><div><h3>Pemulihan akses Passkey</h3><span class="dirac-recovery-kicker">Password + kode email 100 karakter</span></div></div>' +
       '<div class="dirac-recovery-step-list">' +
-      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">1</span><span>Masukkan password akun saat ini, lalu tekan <b>Kirim akses pemulihan</b>.</span></div>' +
-      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">2</span><span>Buka tautan pemulihan terbaru pada email resmi akun.</span></div>' +
-      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">3</span><span>Ikuti petunjuk pada halaman aman dan salin <b>kode pemulihan</b> secara utuh.</span></div>' +
-      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">4</span><span>Masukkan nomor referensi dan kode pemulihan, lalu tekan <b>Konfirmasi pemulihan</b>.</span></div>' +
+      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">1</span><span>Masukkan password akun saat ini, lalu tekan <b>Kirim kode email</b>.</span></div>' +
+      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">2</span><span>Sistem memverifikasi password dan mengirim <b>kode keamanan 100 karakter</b> ke email resmi akun.</span></div>' +
+      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">3</span><span>Masukkan kode 100 karakter dari email. Password dan kode email wajib sama-sama valid.</span></div>' +
+      '<div class="dirac-recovery-step-item"><span class="dirac-recovery-step-no">4</span><span>Setelah dua verifikasi lolos, tahap penggantian Passkey akan terbuka.</span></div>' +
       '</div>' +
       '<label class="dirac-recovery-field-label">Password akun sekarang</label>' +
       '<input class="dirac-recovery-account-password-input" type="password" autocomplete="current-password" minlength="12" maxlength="128" title="Minimal 12 karakter, 1 huruf besar, 1 angka, dan 1 simbol" placeholder="Password login akun ini">' +
-      '<div class="dirac-recovery-verify-actions"><button class="dirac-recovery-request-submit" type="button">Kirim akses pemulihan</button><button class="dirac-recovery-hide-btn" type="button">Tutup</button></div>' +
-      '<div class="dirac-recovery-website-code-box" aria-live="polite">' +
-      '<div class="dirac-recovery-secret-grid">' +
-      '<div class="dirac-recovery-secret-card" data-recovery-secret-card="website">' +
-      '<div class="dirac-recovery-secret-head"><span class="dirac-recovery-secret-label">Kode website — 100 karakter</span><button class="dirac-recovery-copy-btn" type="button" data-dirac-recovery-copy="website">Salin</button></div>' +
-      '<code class="dirac-recovery-website-code-text dirac-recovery-secret-value">-</code>' +
-      '<small class="dirac-recovery-secret-hint">Salin kode ini sebelum membuka tautan email. Halaman pemulihan meminta kode website ini, kode email 100 karakter, dan password akun.</small>' +
-      '</div>' +
-
-      '</div>' +
-      '</div>' +
-      '<div class="dirac-recovery-next-info">Nomor referensi diisi otomatis setelah akses dikirim. Masukkan kode pemulihan yang ditampilkan pada halaman aman.</div>' +
+      '<div class="dirac-recovery-verify-actions"><button class="dirac-recovery-request-submit" type="button">Kirim kode email</button><button class="dirac-recovery-hide-btn" type="button">Tutup</button></div>' +
+      '<div class="dirac-recovery-next-info">Nomor referensi diisi otomatis setelah server mengonfirmasi bahwa kode 100 karakter telah dikirim ke email resmi akun.</div>' +
       '<div class="dirac-recovery-verify-stage">' +
       '<label class="dirac-recovery-field-label">Nomor referensi</label>' +
-      '<input class="dirac-recovery-request-id-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Terisi otomatis setelah akses pemulihan dikirim">' +
-      '<label class="dirac-recovery-field-label">Kode pemulihan — 1200 karakter</label>' +
-      '<textarea class="dirac-recovery-verify-input dirac-recovery-combined-input" autocomplete="one-time-code" autocapitalize="off" spellcheck="false" placeholder="Masukkan kode pemulihan 1200 karakter dari halaman aman."></textarea>' +
-      '<div class="dirac-recovery-code-counter" aria-live="polite"><span>Kode pemulihan: 0/1200 karakter</span><span>Masukkan 1200 karakter penuh</span></div>' +
-      '<div class="dirac-recovery-verify-actions"><button class="dirac-recovery-verify-submit" type="button">Konfirmasi pemulihan</button></div>' +
+      '<input class="dirac-recovery-request-id-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Terisi otomatis setelah kode email dikirim">' +
+      '<label class="dirac-recovery-field-label">Kode email — 100 karakter</label>' +
+      '<textarea class="dirac-recovery-verify-input dirac-recovery-combined-input" autocomplete="one-time-code" autocapitalize="off" spellcheck="false" maxlength="100" placeholder="Masukkan tepat 100 karakter dari email resmi akun."></textarea>' +
+      '<div class="dirac-recovery-code-counter" aria-live="polite"><span>Kode email: 0/100 karakter</span><span>Masukkan 100 karakter penuh</span></div>' +
+      '<div class="dirac-recovery-verify-actions"><button class="dirac-recovery-verify-submit" type="button">Verifikasi password + kode email</button></div>' +
       '</div>' +
       '<div class="dirac-recovery-passkey-stage" hidden>' +
       '<strong>Langkah 5: Daftar Passkey baru</strong>' +
-      '<span>Recovery sudah valid. Tekan tombol ini, lalu ikuti Face ID, sidik jari, atau PIN. Passkey lama akan dinonaktifkan oleh server setelah Passkey baru berhasil tersimpan.</span>' +
+      '<span>Password dan kode email telah diverifikasi. Tekan tombol ini, lalu ikuti Face ID, sidik jari, atau PIN. Passkey lama akan dinonaktifkan oleh server setelah Passkey baru berhasil tersimpan.</span>' +
       '<button class="dirac-recovery-passkey-submit" type="button">Daftar Passkey Baru</button>' +
       '</div>' +
-      '<div class="dirac-recovery-warning">Tujuan email ditentukan dari akun yang telah diverifikasi. Kode website hanya ditampilkan di panel ini; kode email dikirim melalui email. Jangan bagikan keduanya.</div>' +
+      '<div class="dirac-recovery-warning">Kode 100 karakter hanya dikirim ke email resmi yang terikat pada akun. Kode tidak ditampilkan oleh HTML/API dan tidak boleh dibagikan kepada pihak lain.</div>' +
       '<div class="dirac-recovery-verify-status" aria-live="polite"></div>';
     if(result && result.parentNode) result.parentNode.insertBefore(box, result);
     else if(preview && preview.nextSibling) container.insertBefore(box, preview.nextSibling);
